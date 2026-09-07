@@ -136,7 +136,12 @@ site/
   - `SMTP_AUTH_CODE` = QQ 邮箱授权码（不是登录密码）
   - `MAIL_TO` = `epiphany_0421@qq.com`
 - QQ 邮箱开启方法：设置 → 账户 → 开启 SMTP 服务 → 生成授权码
-- 当前待办：收到用户的 SMTP 授权码后，配置 Secret 并测试发送
+- 已配置 SMTP Secrets：`SMTP_USER`、`SMTP_AUTH_CODE`、`MAIL_TO`，测试邮件发送成功
+- **LLM 可选增强（已配置）**：
+  - `scripts/llm.py` 提供 LLM 调用；自动报告会生成「本周速览与重点推荐（AI 生成）」板块
+  - GitHub Secrets：`LLM_PROVIDER=deepseek`、`LLM_API_KEY`、`LLM_MODEL=deepseek-chat`
+  - 自动邮件默认发送 LLM 增强后的 `auto-*.md` 摘要；人工精编周报仍保留在网站
+  - 未配置 LLM Key 时，自动报告退化为原始聚合，不影响发送
 
 ## 当前状态与待办
 
