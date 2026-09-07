@@ -12,6 +12,9 @@ config.json
 # Personal/research docs (do not commit)
 科研/
 
+# DSH desktop project (large local project, do not commit)
+dsh-desktop/
+
 # OS / editor
 .DS_Store
 Thumbs.db
