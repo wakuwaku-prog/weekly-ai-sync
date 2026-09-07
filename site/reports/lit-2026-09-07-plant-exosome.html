@@ -1,31 +1,10 @@
-"""Build a tiny static site from weekly AI reports.
-
-Usage:
-    python scripts/build_site.py
-
-Input:
-    weekly/YYYY-MM-DD-ai-weekly.md   (files matching *-ai-weekly.md)
-
-Output:
-    site/index.html                  Home page listing all reports
-    site/reports/<slug>.html         Rendered report pages
-"""
-
-from __future__ import annotations
-
-import re
-from datetime import datetime
-from pathlib import Path
-
-import markdown
-
-ROOT = Path(__file__).resolve().parent.parent
-WEEKLY_DIR = ROOT / "weekly"
-SITE_DIR = ROOT / "site"
-REPORTS_DIR = SITE_DIR / "reports"
-LITERATURE_DIR = ROOT / "literature"
-
-CSS = """
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>植物外泌体/植物囊泡文献追踪（2026-08-24 ~ 2026-09-07）</title>
+<style>
 :root {
   --bg: #f4f6fb;
   --bg-accent: #eef2ff;
@@ -199,126 +178,44 @@ article.report th { background: var(--bg-accent); }
   border-top: 1px solid var(--border);
   padding-top: 20px;
 }
-"""
-
-
-def slug_for(path: Path) -> str:
-    return path.stem
-
-
-def render_report(page_title: str, body_html: str, build_time: str) -> str:
-    return f"""<!doctype html>
-<html lang="zh-CN">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{page_title}</title>
-<style>{CSS}</style>
+</style>
 </head>
 <body>
 <div class="container">
 <a class="back-link" href="../index.html">← 返回目录</a>
 <article class="report">
-{body_html}
+<h1 id="2026-08-24-2026-09-07">植物外泌体/植物囊泡文献追踪（2026-08-24 ~ 2026-09-07）</h1>
+<blockquote>
+<p>PubMed 检索：<code>("plant extracellular vesicle"[Title/Abstract] OR "plant-derived exosome"[Title/Abstract] OR "plant exosome-like nanovesicles"[Title/Abstract] OR "plant-derived nanovesicles"[Title/Abstract]) AND (skin[Title/Abstract] OR dermal[Title/Abstract] OR skin aging[Title/Abstract] OR senescence[Title/Abstract] OR extracellular matrix[Title/Abstract] OR collagen[Title/Abstract] OR wound[Title/Abstract]) AND (2026/08/24:2026/09/07[dp])</code>
+共返回 1 篇（展示前 1 篇）</p>
+</blockquote>
+<h2 id="ai">本周文献速览与重点推荐（AI 生成）</h2>
+<h2 id="2026-08-24-2026-09-07_1">本周文献速览与重点推荐（2026-08-24 ~ 2026-09-07）</h2>
+<h3 id="_1">一、本周领域动态概览</h3>
+<p>本周 PubMed 检索（限定皮肤/ECM/胶原/创面相关关键词）仅返回 1 篇文献，显示该细分交叉方向在本时间窗口内发表量较少，领域热度处于阶段性低点。值得注意的是，唯一收录的文献并非直接聚焦皮肤，而是将植物来源外泌体样颗粒（GELPs）用于<strong>肝纤维化</strong>中 ECM 沉积的调控——这提示植物囊泡在“抗纤维化/ECM 重塑”方向的应用正在从皮肤向其他纤维化疾病（肝、肺、肾等）拓展，机制层面的共性值得关注。此外，该研究采用<strong>“植物囊泡-脂质体膜融合杂合纳米颗粒”</strong>策略，代表了植物囊泡工程化改性的一个前沿趋势。</p>
+<h3 id="_2">二、重点文献推荐</h3>
+<p><strong>1. Biomimetic hybrid nanoparticles from grape-derived exosome-like particles and liposomes potentiate JQ1-mediated anti-fibrotic effects in hepatic stellate cells.（PMID: 42667952）</strong></p>
+<p><strong>推荐理由（三点）：</strong></p>
+<ul>
+<li><strong>方法创新——膜融合杂合纳米平台</strong>：该研究将葡萄来源外泌体样颗粒（GELPs）与脂质体进行膜融合，构建仿生杂合纳米颗粒。这一策略既保留了植物囊泡的天然靶向性与生物相容性，又借助脂质体的可设计性实现药物（JQ1，一种 BET 抑制剂）的高效装载，为植物囊泡的工程化改造提供了可复制的技术范式。</li>
+<li><strong>机制关联——ECM 沉积的核心通路</strong>：研究聚焦于活化的肝星状细胞（HSCs），该细胞是肝纤维化中 ECM 过度沉积的主要驱动者。通过 GELP-脂质体杂合颗粒递送 JQ1 抑制促纤维化信号，直接靶向 ECM 代谢失衡这一病理环节，与皮肤瘢痕/纤维化中成纤维细胞过度活化、胶原异常沉积的机制高度同源。</li>
+<li><strong>应用价值——跨器官抗纤维化潜力</strong>：虽然本研究针对肝脏，但其“植物囊泡 + 药物协同抗纤维化”的验证逻辑，为后续将类似策略拓展至皮肤创面愈合后期瘢痕防治、硬皮病等皮肤纤维化疾病提供了直接的理论与实验依据。</li>
+</ul>
+<h3 id="ecm">三、与“皮肤衰老/ECM/胶原/创面修复”特别相关的文献标注</h3>
+<p><strong>无。</strong> 本周检索范围内未发现直接以皮肤衰老、胶原代谢或创面修复为研究对象的植物囊泡文献。唯一收录文献虽涉及 ECM 调控，但研究体系为肝脏而非皮肤。建议在后续追踪中适当放宽皮肤限定词（如纳入“fibrosis”“scar”“fibroblast”等关键词），以捕捉更多间接相关的机制性研究。</p>
+<h2 id="_3">本周新增文献</h2>
+<ul>
+<li><strong>Biomimetic hybrid nanoparticles from grape-derived exosome-like particles and liposomes potentiate JQ1-mediated anti-fibrotic effects in hepatic stellate cells.</strong></li>
+<li>期刊：Journal of pharmaceutical sciences｜年份：2026｜PMID：42667952</li>
+<li>DOI：10.1016/j.xphs.2026.104484</li>
+<li>摘要：Activated hepatic stellate cells (HSCs) play a central role in liver fibrosis by promoting extracellular matrix deposition, oxidative stress, and pro-fibrotic signaling. Here, we engineered a membrane-fused hybrid nanoparticle by combining grape-derived exosome-like particles (GELPs) with liposomes …</li>
+</ul>
+<hr />
+<blockquote>
+<p>自动生成脚本：<code>scripts/literature_digest.py</code>｜数据来源：PubMed E-utilities</p>
+</blockquote>
 </article>
-<div class="footer">由 scripts/build_site.py 自动生成 ｜ 更新时间：{build_time}</div>
+<div class="footer">由 scripts/build_site.py 自动生成 ｜ 更新时间：2026-09-07 23:55</div>
 </div>
 </body>
 </html>
-"""
-
-
-def render_index(items: list[dict], build_time: str) -> str:
-    cards = "\n".join(
-        f"""<a class="card" href="reports/{item['slug']}.html">
-<h2>{item['title']}</h2>
-<div class="date">{item['category']} · {item['date']}</div>
-<p class="excerpt">{item['excerpt']}</p>
-</a>"""
-        for item in items
-    )
-    empty_html = '<div class="empty">还没有内容，先把 Markdown 放进 <code>weekly/</code> 或 <code>literature/</code> 目录。</div>'
-    return f"""<!doctype html>
-<html lang="zh-CN">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>科研信息同步站</title>
-<style>{CSS}</style>
-</head>
-<body>
-<div class="container">
-<section class="hero">
-<h1>科研信息同步站</h1>
-<p>每周 AI 热点 ｜ 植物外泌体/植物囊泡文献追踪</p>
-<div class="badge">共 {len(items)} 项</div>
-</section>
-<div class="card-list">
-{cards or empty_html}
-</div>
-<div class="footer">由 scripts/build_site.py 自动生成 ｜ 更新时间：{build_time}</div>
-</div>
-</body>
-</html>
-"""
-
-
-def excerpt_from_html(html: str, limit: int = 180) -> str:
-    text = re.sub(r"<[^>]+>", "", html)
-    text = re.sub(r"\s+", " ", text).strip()
-    return text[:limit] + ("…" if len(text) > limit else "")
-
-
-def main() -> None:
-    REPORTS_DIR.mkdir(parents=True, exist_ok=True)
-    build_time = datetime.now().strftime("%Y-%m-%d %H:%M")
-
-    def add_item(path: Path, category: str, slug_prefix: str = "") -> None:
-        md_text = path.read_text(encoding="utf-8")
-        html_body = markdown.markdown(
-            md_text,
-            extensions=["extra", "sane_lists", "toc"],
-        )
-        slug = f"{slug_prefix}{slug_for(path)}"
-        title_match = re.search(r"^#\s+(.+)$", md_text, re.MULTILINE)
-        title = title_match.group(1).strip() if title_match else path.stem
-        date = path.stem[:10]
-
-        report_page = render_report(title, html_body, build_time)
-        (REPORTS_DIR / f"{slug}.html").write_text(report_page, encoding="utf-8")
-
-        items.append(
-            {
-                "slug": slug,
-                "title": title,
-                "date": date,
-                "category": category,
-                "excerpt": excerpt_from_html(html_body),
-            }
-        )
-
-    items: list[dict] = []
-
-    weekly_files = sorted(
-        (p for p in WEEKLY_DIR.glob("*-ai-weekly.md") if not p.name.startswith("auto-")),
-        key=lambda p: p.name,
-        reverse=True,
-    )
-    for path in weekly_files:
-        add_item(path, "AI 周报")
-
-    if LITERATURE_DIR.exists():
-        literature_files = sorted(
-            LITERATURE_DIR.glob("*.md"),
-            key=lambda p: p.name,
-            reverse=True,
-        )
-        for path in literature_files:
-            add_item(path, "文献追踪", slug_prefix="lit-")
-
-    (SITE_DIR / "index.html").write_text(render_index(items, build_time), encoding="utf-8")
-    print(f"Generated site: {len(items)} item(s) -> {SITE_DIR}")
-
-
-if __name__ == "__main__":
-    main()

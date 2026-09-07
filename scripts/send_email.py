@@ -30,6 +30,7 @@ import markdown
 
 ROOT = Path(__file__).resolve().parent.parent
 WEEKLY_DIR = ROOT / "weekly"
+LITERATURE_DIR = ROOT / "literature"
 
 
 def latest_report_path() -> Path:
@@ -42,6 +43,13 @@ def latest_report_path() -> Path:
     if not files:
         raise FileNotFoundError("No weekly report found in weekly/")
     return files[0]
+
+
+def latest_literature_path() -> Path | None:
+    if not LITERATURE_DIR.exists():
+        return None
+    files = sorted(LITERATURE_DIR.glob("*.md"), key=lambda p: p.name, reverse=True)
+    return files[0] if files else None
 
 
 def build_html(md_text: str, site_url: str) -> str:
@@ -98,12 +106,21 @@ def send_email(md_text: str, subject: str) -> None:
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--file", type=Path, default=None, help="Path to the markdown report")
+    parser.add_argument("--no-literature", action="store_true", help="Do not append the latest literature digest")
     args = parser.parse_args()
 
     path = args.file if args.file else latest_report_path()
     md_text = path.read_text(encoding="utf-8")
     title_match = next((line for line in md_text.splitlines() if line.startswith("# ")), None)
     title = title_match.lstrip("# ").strip() if title_match else f"AI Weekly {path.stem[:10]}"
+
+    if not args.no_literature:
+        lit_path = latest_literature_path()
+        if lit_path is not None:
+            lit_md = lit_path.read_text(encoding="utf-8")
+            md_text += "\n\n---\n\n" + lit_md
+            title = f"{title} ＋ 植物囊泡文献追踪"
+
     send_email(md_text, title)
 
 

@@ -26,6 +26,9 @@ jobs:
       - name: Generate automatic weekly digest
         run: python scripts/generate_auto_report.py
 
+      - name: Generate plant exosome literature digest
+        run: python scripts/literature_digest.py --days 7 --extended
+
       - name: Build static site
         run: python scripts/build_site.py
 
