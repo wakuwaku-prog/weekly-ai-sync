@@ -1,0 +1,20 @@
+{
+  "interests": [
+    "AI Agents / MCP / Skills",
+    "AI + 生物医药科研",
+    "植物外泌体 / 植物囊泡（后续第二期）"
+  ],
+  "arxiv": {
+    "ai_categories": ["cs.AI", "cs.LG", "cs.CL"],
+    "bio_categories": ["q-bio.*"]
+  },
+  "pubmed_query": "\"artificial intelligence\"[Title/Abstract] AND \"bioinformatics\"[Title/Abstract] AND 2026/01:2026/12[dp]",
+  "github": {
+    "topics": ["ai", "llm", "bioinformatics", "drug-discovery"],
+    "max_repos": 10
+  },
+  "email": {
+    "to": "epiphany_0421@qq.com",
+    "subject_prefix": "AI 每周热点同步"
+  }
+}

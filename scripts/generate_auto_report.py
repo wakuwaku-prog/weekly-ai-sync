@@ -101,9 +101,9 @@ def arxiv_papers(queries: list[tuple[str, str, int]]) -> list[tuple[str, str, st
     return results
 
 
-def pubmed_recent(limit: int = 6) -> list[tuple[str, str, str]]:
+def pubmed_recent(query: str | None = None, limit: int = 6) -> list[tuple[str, str, str]]:
     try:
-        term = '"artificial intelligence"[Title/Abstract] AND "bioinformatics"[Title/Abstract] AND 2026/01:2026/12[dp]'
+        term = query or '"artificial intelligence"[Title/Abstract] AND "bioinformatics"[Title/Abstract] AND 2026/01:2026/12[dp]'
         params = urllib.parse.urlencode({"db": "pubmed", "term": term, "retmax": limit, "retmode": "json", "sort": "date"})
         data = json.loads(fetch(f"https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?{params}").decode("utf-8"))
         ids = data["esearchresult"].get("idlist", [])
@@ -121,16 +121,30 @@ def pubmed_recent(limit: int = 6) -> list[tuple[str, str, str]]:
         return [("", "", f"PubMed fetch failed: {e}")]
 
 
-def render_markdown() -> str:
+def load_config() -> dict:
+    path = ROOT / "config.json"
+    if path.exists():
+        return json.loads(path.read_text(encoding="utf-8"))
+    return {}
+
+
+def render_markdown(config: dict | None = None) -> str:
+    config = config or {}
+    arxiv_cfg = config.get("arxiv", {})
+    ai_cats = arxiv_cfg.get("ai_categories", ["cs.AI", "cs.LG", "cs.CL"])
+    bio_cats = arxiv_cfg.get("bio_categories", ["q-bio.*"])
+    ai_query = " OR ".join(f"cat:{c}" for c in ai_cats)
+    bio_query = " OR ".join(f"cat:{c}" for c in bio_cats)
+
     today = date.today()
     week_ago = today - timedelta(days=7)
     gh = github_trending()
     hf = hf_trending()
     arx = arxiv_papers([
-        ("AI", f"cat:cs.AI AND submittedDate:[{week_ago:%Y%m%d} TO {today:%Y%m%d}]", 6),
-        ("Bio", f"cat:q-bio.* AND (all:\"machine learning\" OR all:\"large language model\") AND submittedDate:[{week_ago:%Y%m%d} TO {today:%Y%m%d}]", 5),
+        ("AI", f"({ai_query}) AND submittedDate:[{week_ago:%Y%m%d} TO {today:%Y%m%d}]", 6),
+        ("Bio", f"({bio_query}) AND (all:\"machine learning\" OR all:\"large language model\") AND submittedDate:[{week_ago:%Y%m%d} TO {today:%Y%m%d}]", 5),
     ])
-    pm = pubmed_recent()
+    pm = pubmed_recent(config.get("pubmed_query"))
 
     lines = [
         f"# AI 每周热点同步（自动抓取 {week_ago.isoformat()} ~ {today.isoformat()}）",
@@ -177,7 +191,7 @@ def main() -> None:
     WEEKLY_DIR.mkdir(parents=True, exist_ok=True)
     today = date.today().isoformat()
     path = WEEKLY_DIR / f"auto-{today}-ai-weekly.md"
-    path.write_text(render_markdown(), encoding="utf-8")
+    path.write_text(render_markdown(load_config()), encoding="utf-8")
     print(f"Auto report written: {path}")
 
 
