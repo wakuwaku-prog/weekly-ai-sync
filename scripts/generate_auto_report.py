@@ -14,12 +14,16 @@ from __future__ import annotations
 
 import html as html_lib
 import json
+import os
 import re
 import time
 import urllib.request
 import xml.etree.ElementTree as ET
 from datetime import date, timedelta
 from pathlib import Path
+
+from llm import available as llm_available
+from llm import llm_complete
 
 ROOT = Path(__file__).resolve().parent.parent
 WEEKLY_DIR = ROOT / "weekly"
@@ -128,6 +132,30 @@ def load_config() -> dict:
     return {}
 
 
+def llm_digest_insight(report_md: str) -> str:
+    if not llm_available():
+        return ""
+    prompt = f"""你是一位资深的技术编辑，关注 AI 前沿、Agent/工具生态以及 AI 在生物医药科研中的应用。
+下面是本周自动抓取的原始聚合周报。请用中文生成一段「本周速览与重点推荐」，要求：
+
+1. 先用一两句话总结本周整体趋势；
+2. 列出 3-5 条关键趋势洞察（可以涉及模型、Agent、MCP、GitHub 生态、AI+生物医药）；
+3. 挑出 3-5 个最值得关注的项目/论文/模型，并说明为什么值得关注、可能适合什么场景。
+
+要求输出 Markdown，简洁、信息密度高，不要简单复述原始列表，不要给出无法从原文推出的具体数据。
+
+原始周报：
+{report_md[:6000]}"""
+    try:
+        return llm_complete(
+            prompt,
+            system="你是资深 AI 与生物医药交叉领域的技术编辑，擅长把技术动态提炼成可行动的洞察。",
+            max_tokens=2500,
+        )
+    except Exception as exc:
+        return f"\n> LLM 摘要生成失败：{exc}\n"
+
+
 def render_markdown(config: dict | None = None) -> str:
     config = config or {}
     arxiv_cfg = config.get("arxiv", {})
@@ -184,7 +212,16 @@ def render_markdown(config: dict | None = None) -> str:
     else:
         lines.append("- 暂无数据")
     lines += ["", "## 5. 说明", "", "- 自动报告为原始聚合，未做深度筛选和“可应用建议”。", "- 如需带 AI 分析和应用建议的最终版周报，仍可让 Agent 在本地生成后覆盖/补充。"]
-    return "\n".join(lines)
+
+    md = "\n".join(lines)
+    insight = llm_digest_insight(md)
+    if insight:
+        md = md.replace(
+            "## 1. GitHub Trending（过去一周）",
+            f"## 本周速览与重点推荐（AI 生成）\n\n{insight}\n\n## 1. GitHub Trending（过去一周）",
+            1,
+        )
+    return md
 
 
 def main() -> None:

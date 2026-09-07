@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Local secrets / config
+.env
+config.json
+
+# Personal/research docs (do not commit)
+科研/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
