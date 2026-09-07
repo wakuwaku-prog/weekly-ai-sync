@@ -17,11 +17,11 @@
 
 ## 2. Hugging Face 趋势模型
 
-- **XHToken/Spark-X2.5-4B**｜下载 7216｜点赞 673  https://huggingface.co/XHToken/Spark-X2.5-4B
+- **XHToken/Spark-X2.5-4B**｜下载 7216｜点赞 674  https://huggingface.co/XHToken/Spark-X2.5-4B
 - **Qwen/Qwen3.8-27B**｜下载 6416358｜点赞 14212  https://huggingface.co/Qwen/Qwen3.8-27B
 - **google/timesfm-3.0-pytorch**｜下载 271713｜点赞 558  https://huggingface.co/google/timesfm-3.0-pytorch
 - **deepseek-ai/DeepSeek-V4-Flash-Vision-Exp**｜下载 251611｜点赞 785  https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-Vision-Exp
-- **ISTA-DASLab/Qwen3.8-27B-GSQ-RCO-GGUF**｜下载 403292｜点赞 504  https://huggingface.co/ISTA-DASLab/Qwen3.8-27B-GSQ-RCO-GGUF
+- **ISTA-DASLab/Qwen3.8-27B-GSQ-RCO-GGUF**｜下载 403292｜点赞 506  https://huggingface.co/ISTA-DASLab/Qwen3.8-27B-GSQ-RCO-GGUF
 - **Qwen/Qwen3.8-Flash-Next**｜下载 474693｜点赞 4968  https://huggingface.co/Qwen/Qwen3.8-Flash-Next
 
 ## 3. arXiv 近期论文（AI / 生物医药）
