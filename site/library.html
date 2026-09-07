@@ -1,0 +1,506 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>论文库｜科研信息同步站</title>
+<style>
+:root {
+  --paper: #F6F3ED;
+  --card: #FFFFFF;
+  --ink: #1C2A24;
+  --leaf: #1F4A3C;
+  --mint: #2E8B7A;
+  --gold: #C9A24B;
+  --line: #DCD5C8;
+  --muted: #6B746E;
+  --shadow: 0 1px 2px rgba(28, 42, 36, .05), 0 2px 8px rgba(28, 42, 36, .05);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #131812;
+    --card: #1B231C;
+    --ink: #E7E4D8;
+    --leaf: #7FC3A6;
+    --mint: #5BB99D;
+    --gold: #D9B96A;
+    --line: #303B31;
+    --muted: #9AA69C;
+    --shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 2px 8px rgba(0, 0, 0, .25);
+  }
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Avenir Next", "Inter", "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--mint); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.container { max-width: 860px; margin: 0 auto; padding: 30px 22px 70px; }
+
+/* Masthead nav */
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 34px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--line);
+}
+.nav .brand {
+  font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, "Songti SC", serif;
+  font-weight: 600;
+  font-size: 1.12rem;
+  letter-spacing: -.01em;
+  color: var(--ink);
+}
+.nav .brand span { color: var(--mint); }
+.nav .links { display: flex; gap: 18px; font-size: .92rem; }
+.nav .links a { color: var(--muted); }
+.nav .links a.active, .nav .links a:hover { color: var(--leaf); }
+
+/* Hero */
+.hero {
+  background: var(--leaf);
+  color: #F6F3ED;
+  padding: 40px 36px;
+  margin-bottom: 34px;
+}
+.hero .kicker {
+  font-size: .85rem;
+  color: rgba(246, 243, 237, .75);
+  margin: 0 0 10px;
+}
+.hero h1 {
+  font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, "Songti SC", serif;
+  font-weight: 600;
+  font-size: 2rem;
+  line-height: 1.2;
+  margin: 0 0 8px;
+  letter-spacing: -.015em;
+}
+.hero p { margin: 0; color: rgba(246, 243, 237, .82); max-width: 620px; }
+.hero .stats { margin-top: 18px; font-size: .88rem; color: rgba(246, 243, 237, .8); }
+.hero .stats b { color: #fff; font-weight: 600; }
+
+/* Category filter links */
+.filters { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 26px; }
+.filter-btn {
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--muted);
+  padding: 7px 14px;
+  font-size: .9rem;
+  cursor: pointer;
+  font-family: inherit;
+  transition: border-color .15s ease, color .15s ease;
+}
+.filter-btn:hover { border-color: var(--mint); color: var(--leaf); }
+.filter-btn.active { border-color: var(--leaf); color: var(--leaf); font-weight: 600; }
+
+/* Editorial entries */
+.card-list { display: block; }
+.entry {
+  display: block;
+  border-bottom: 1px solid var(--line);
+  border-left: 3px solid transparent;
+  padding: 20px 0 18px 16px;
+  margin-left: -16px;
+  color: inherit;
+  transition: border-color .15s ease;
+}
+.entry:hover { border-left-color: var(--mint); text-decoration: none; }
+.entry h2 {
+  font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, "Songti SC", serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0 0 8px;
+  line-height: 1.35;
+  letter-spacing: -.01em;
+}
+.entry .meta { font-size: .84rem; color: var(--muted); margin-bottom: 8px; }
+.entry .excerpt { color: var(--muted); margin: 0; font-size: .95rem; }
+.tag {
+  display: inline-block;
+  padding: 2px 9px;
+  border-radius: 999px;
+  font-size: .72rem;
+  font-weight: 600;
+  margin-right: 8px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  color: var(--leaf);
+}
+.tag.ai { border-color: var(--mint); color: var(--mint); }
+.tag.lit { border-color: var(--gold); color: #8a6d2c; }
+@media (prefers-color-scheme: dark) { .tag.lit { color: var(--gold); } }
+
+/* Report page */
+article.report {
+  background: var(--card);
+  border: 1px solid var(--line);
+  padding: 38px 42px;
+  box-shadow: var(--shadow);
+}
+article.report h1 {
+  font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, "Songti SC", serif;
+  font-size: 1.9rem;
+  line-height: 1.3;
+  margin: 0 0 10px;
+  letter-spacing: -.02em;
+}
+article.report blockquote {
+  margin: 0 0 26px;
+  padding: 12px 18px;
+  background: var(--paper);
+  border-left: 3px solid var(--gold);
+  color: var(--muted);
+}
+article.report h2 {
+  font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, "Songti SC", serif;
+  font-size: 1.35rem;
+  margin-top: 38px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--line);
+}
+article.report h3 { font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif; font-size: 1.12rem; margin-top: 26px; }
+article.report p, article.report li { line-height: 1.8; }
+article.report ul, article.report ol { padding-left: 1.4em; }
+article.report li { margin-bottom: 6px; }
+article.report pre {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  padding: 14px 18px;
+  overflow-x: auto;
+}
+article.report code {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 2px 6px;
+  font-size: .9em;
+}
+article.report pre code { background: transparent; border: 0; padding: 0; }
+article.report table { border-collapse: collapse; width: 100%; margin: 16px 0; }
+article.report th, article.report td { border: 1px solid var(--line); padding: 8px 12px; text-align: left; }
+article.report th { background: var(--paper); }
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 18px;
+  font-size: .93rem;
+  color: var(--muted);
+  padding-left: 0;
+}
+.back-link:hover { color: var(--leaf); text-decoration: none; }
+
+/* Library */
+.library-intro { margin-bottom: 28px; color: var(--muted); }
+.library-search {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid var(--line);
+  background: var(--card);
+  color: var(--ink);
+  font-size: .95rem;
+  font-family: inherit;
+  margin-bottom: 22px;
+}
+.paper {
+  border-bottom: 1px solid var(--line);
+  padding: 18px 0 16px;
+}
+.paper h3 {
+  font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, "Songti SC", serif;
+  font-size: 1.12rem;
+  font-weight: 600;
+  margin: 0 0 6px;
+  line-height: 1.4;
+}
+.paper .meta { font-size: .84rem; color: var(--muted); margin-bottom: 8px; }
+.paper .links { font-size: .85rem; margin-bottom: 8px; }
+.paper .links a { margin-right: 12px; }
+.paper .abs { color: var(--muted); font-size: .9rem; margin: 0; }
+.empty { color: var(--muted); text-align: center; padding: 40px 0; }
+.footer {
+  margin-top: 46px;
+  color: var(--muted);
+  font-size: .82rem;
+  text-align: center;
+  border-top: 1px solid var(--line);
+  padding-top: 18px;
+}
+.back-top {
+  position: fixed; right: 20px; bottom: 20px;
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  background: var(--leaf);
+  color: #F6F3ED;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  display: none;
+  align-items: center; justify-content: center;
+  box-shadow: var(--shadow);
+  z-index: 10;
+}
+.back-top.visible { display: flex; }
+@media (max-width: 600px) {
+  .container { padding: 20px 16px 60px; }
+  article.report { padding: 26px 22px; }
+  .hero { padding: 28px 22px; }
+  .hero h1 { font-size: 1.6rem; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+<nav class="nav">
+<a class="brand" href="index.html">科研信息<span>同步站</span></a>
+<div class="links">
+<a href="index.html">首页</a>
+<a class="active" href="library.html">论文库</a>
+</div>
+</nav>
+<section class="hero">
+<p class="kicker">自动收集的植物囊泡文献</p>
+<h1>论文库</h1>
+<p>这里汇总了本周及历史抓取的植物细胞外囊泡 / 植物外泌体相关文献，点击标题或下方链接即可跳转到原文。</p>
+<div class="stats"><b>36</b> 篇已收录</div>
+</section>
+<p class="library-intro">数据来源：PubMed、Europe PMC、OpenAlex、Semantic Scholar。用下方搜索框可按标题或摘要快速过滤。</p>
+<input class="library-search" id="libSearch" type="text" placeholder="搜索标题或摘要…">
+<div id="libList">
+<div class="paper" data-search="Biomimetic hybrid nanoparticles from grape-derived exosome-like particles and liposomes potentiate JQ1-mediated anti-fibrotic effects in hepatic stellate cells. Activated hepatic stellate cells (HSCs) play a central role in liver fibrosis by promoting extracellular matrix deposition, oxidative stress, and pro-fibrotic signaling. Here, we engineered a membrane-fused hybrid nanoparticle by combining grape-derived exosom…">
+<h3><a href="https://pubmed.ncbi.nlm.nih.gov/42667952/" target="_blank" rel="noopener">Biomimetic hybrid nanoparticles from grape-derived exosome-like particles and liposomes potentiate JQ1-mediated anti-fibrotic effects in hepatic stellate cells.</a></h3>
+<div class="meta"><span class="tag">PubMed</span>Journal of pharmaceutical sciences ｜ 2026</div>
+<div class="links"><a href="https://pubmed.ncbi.nlm.nih.gov/42667952/" target="_blank" rel="noopener">PubMed</a> <a href="https://doi.org/10.1016/j.xphs.2026.104484" target="_blank" rel="noopener">DOI</a></div>
+<p class="abs">Activated hepatic stellate cells (HSCs) play a central role in liver fibrosis by promoting extracellular matrix deposition, oxidative stress, and pro-fibrotic signaling. Here, we engineered a membrane-fused hybrid nanoparticle by combining grape-derived exosom…</p>
+</div>
+<div class="paper" data-search="Plant-derived extracellular vesicles (PDEVs) in anti-aging research: A review of biomedical characteristics and therapeutic applications. Aging is a complex, irreversible physiological process characterized by gradual deterioration of tissue structure and function, accompanied by impaired regenerative capacity, dysregulated immune homeostasis, and increased susceptibility to chronic age-related …">
+<h3><a href="https://pubmed.ncbi.nlm.nih.gov/42580599/" target="_blank" rel="noopener">Plant-derived extracellular vesicles (PDEVs) in anti-aging research: A review of biomedical characteristics and therapeutic applications.</a></h3>
+<div class="meta"><span class="tag">PubMed</span>Ageing research reviews ｜ 2026</div>
+<div class="links"><a href="https://pubmed.ncbi.nlm.nih.gov/42580599/" target="_blank" rel="noopener">PubMed</a> <a href="https://doi.org/10.1016/j.arr.2026.103294" target="_blank" rel="noopener">DOI</a></div>
+<p class="abs">Aging is a complex, irreversible physiological process characterized by gradual deterioration of tissue structure and function, accompanied by impaired regenerative capacity, dysregulated immune homeostasis, and increased susceptibility to chronic age-related …</p>
+</div>
+<div class="paper" data-search="Advances in Chinese herbal medicine for diabetic wound treatment: from tradition to innovation. Diabetic wounds represent one of the most intractable complications of diabetes, arising from a highly complex and self-perpetuating pathological microenvironment. This milieu is characterized by chronic inflammation, oxidative stress, impaired angiogenesis, p…">
+<h3><a href="https://pubmed.ncbi.nlm.nih.gov/42552551/" target="_blank" rel="noopener">Advances in Chinese herbal medicine for diabetic wound treatment: from tradition to innovation.</a></h3>
+<div class="meta"><span class="tag">PubMed</span>Chinese medicine ｜ 2026</div>
+<div class="links"><a href="https://pubmed.ncbi.nlm.nih.gov/42552551/" target="_blank" rel="noopener">PubMed</a> <a href="https://doi.org/10.1186/s13020-026-01480-3" target="_blank" rel="noopener">DOI</a></div>
+<p class="abs">Diabetic wounds represent one of the most intractable complications of diabetes, arising from a highly complex and self-perpetuating pathological microenvironment. This milieu is characterized by chronic inflammation, oxidative stress, impaired angiogenesis, p…</p>
+</div>
+<div class="paper" data-search="Membrane Fusion-Based Mirabilis Himalaica-Derived Exosome-like Nanoparticles Fused with Cell-Penetrating Peptide Mediated for Chebulinic Acid Delivery Against UVA-Induced Photoaging. Exposure to ultraviolet (UV), particularly UVA radiation, is a primary driver of photoaging due to its deep dermal penetration, which triggers DNA damage, collagen degradation, and immune suppression. Chebulinic acid (CA), a polyphenolic compound from">
+<h3><a href="https://pubmed.ncbi.nlm.nih.gov/42505345/" target="_blank" rel="noopener">Membrane Fusion-Based Mirabilis Himalaica-Derived Exosome-like Nanoparticles Fused with Cell-Penetrating Peptide Mediated for Chebulinic Acid Delivery Against UVA-Induced Photoaging.</a></h3>
+<div class="meta"><span class="tag">PubMed</span>Cells ｜ 2026</div>
+<div class="links"><a href="https://pubmed.ncbi.nlm.nih.gov/42505345/" target="_blank" rel="noopener">PubMed</a> <a href="https://doi.org/10.3390/cells15141235" target="_blank" rel="noopener">DOI</a></div>
+<p class="abs">Exposure to ultraviolet (UV), particularly UVA radiation, is a primary driver of photoaging due to its deep dermal penetration, which triggers DNA damage, collagen degradation, and immune suppression. Chebulinic acid (CA), a polyphenolic compound from</p>
+</div>
+<div class="paper" data-search="Chinese herbal medicine-derived exosome-like nanovesicles for orthopaedic diseases: evidence, methods, and translation. Chinese herbal medicine/medicinal plant-derived exosome-like nanovesicles (CHM/medicinal plant-derived ELNVs) are emerging as promising nanoplatforms for orthopaedic diseases because of their favorable biocompatibility, complex bioactive cargos, and potential …">
+<h3><a href="https://pubmed.ncbi.nlm.nih.gov/42499705/" target="_blank" rel="noopener">Chinese herbal medicine-derived exosome-like nanovesicles for orthopaedic diseases: evidence, methods, and translation.</a></h3>
+<div class="meta"><span class="tag">PubMed</span>Frontiers in cell and developmental biology ｜ 2026</div>
+<div class="links"><a href="https://pubmed.ncbi.nlm.nih.gov/42499705/" target="_blank" rel="noopener">PubMed</a> <a href="https://doi.org/10.3389/fcell.2026.1853729" target="_blank" rel="noopener">DOI</a></div>
+<p class="abs">Chinese herbal medicine/medicinal plant-derived exosome-like nanovesicles (CHM/medicinal plant-derived ELNVs) are emerging as promising nanoplatforms for orthopaedic diseases because of their favorable biocompatibility, complex bioactive cargos, and potential …</p>
+</div>
+<div class="paper" data-search="Exosome ice-needling for chronic wounds in dogs: a case series. Chronic wounds in dogs represent a significant clinical challenge due to persistent inflammation and impaired tissue repair. This case series describes four canine patients with chronic, treatment-resistant cutaneous wounds treated with plant-derived exosome-l…">
+<h3><a href="https://pubmed.ncbi.nlm.nih.gov/42494954/" target="_blank" rel="noopener">Exosome ice-needling for chronic wounds in dogs: a case series.</a></h3>
+<div class="meta"><span class="tag">PubMed</span>Frontiers in veterinary science ｜ 2026</div>
+<div class="links"><a href="https://pubmed.ncbi.nlm.nih.gov/42494954/" target="_blank" rel="noopener">PubMed</a> <a href="https://doi.org/10.3389/fvets.2026.1893100" target="_blank" rel="noopener">DOI</a></div>
+<p class="abs">Chronic wounds in dogs represent a significant clinical challenge due to persistent inflammation and impaired tissue repair. This case series describes four canine patients with chronic, treatment-resistant cutaneous wounds treated with plant-derived exosome-l…</p>
+</div>
+<div class="paper" data-search="Hairyvein agrimony-derived nanovesicles in microneedles eradicate intracellular bacteria and reverse senescence to heal diabetic foot osteomyelitis. The refractory nature of diabetic foot osteomyelitis (DFO) wounds constitutes a primary cause of disability among diabetic patients. However, currently employed interventions fall short of clinical requirements because of undefined targeting mechanisms, subopt…">
+<h3><a href="https://pubmed.ncbi.nlm.nih.gov/42442547/" target="_blank" rel="noopener">Hairyvein agrimony-derived nanovesicles in microneedles eradicate intracellular bacteria and reverse senescence to heal diabetic foot osteomyelitis.</a></h3>
+<div class="meta"><span class="tag">PubMed</span>Journal of controlled release : official journal of the Controlled Release Society ｜ 2026</div>
+<div class="links"><a href="https://pubmed.ncbi.nlm.nih.gov/42442547/" target="_blank" rel="noopener">PubMed</a> <a href="https://doi.org/10.1016/j.jconrel.2026.115175" target="_blank" rel="noopener">DOI</a></div>
+<p class="abs">The refractory nature of diabetic foot osteomyelitis (DFO) wounds constitutes a primary cause of disability among diabetic patients. However, currently employed interventions fall short of clinical requirements because of undefined targeting mechanisms, subopt…</p>
+</div>
+<div class="paper" data-search="Broccoli-derived nanovesicles protect against UVB-induced skin photoaging via integrated transcriptomic and proteomic reprogramming of redox and extracellular matrix homeostasis. Ultraviolet B (UVB) radiation is a major environmental factor driving skin photoaging by disrupting redox balance, activating inflammatory cascades, and accelerating extracellular matrix (ECM) degradation. Although plant-derived nanovesicles have emerged as pr…">
+<h3><a href="https://pubmed.ncbi.nlm.nih.gov/42326007/" target="_blank" rel="noopener">Broccoli-derived nanovesicles protect against UVB-induced skin photoaging via integrated transcriptomic and proteomic reprogramming of redox and extracellular matrix homeostasis.</a></h3>
+<div class="meta"><span class="tag">PubMed</span>Frontiers in cell and developmental biology ｜ 2026</div>
+<div class="links"><a href="https://pubmed.ncbi.nlm.nih.gov/42326007/" target="_blank" rel="noopener">PubMed</a> <a href="https://doi.org/10.3389/fcell.2026.1806671" target="_blank" rel="noopener">DOI</a></div>
+<p class="abs">Ultraviolet B (UVB) radiation is a major environmental factor driving skin photoaging by disrupting redox balance, activating inflammatory cascades, and accelerating extracellular matrix (ECM) degradation. Although plant-derived nanovesicles have emerged as pr…</p>
+</div>
+<div class="paper" data-search="Hypericum perforatum L.: A legacy of herbal medicine in light of modern scientific evidence. Hypericum perforatum L. has been used for centuries in traditional medicine, with core therapeutic applications including alleviation of emotional, wound and burn healing and neurological disorders, and antiparasitic treatments. This review summarizes and inte…">
+<h3><a href="https://pubmed.ncbi.nlm.nih.gov/42302936/" target="_blank" rel="noopener">Hypericum perforatum L.: A legacy of herbal medicine in light of modern scientific evidence.</a></h3>
+<div class="meta"><span class="tag">PubMed</span>Journal of ethnopharmacology ｜ 2026</div>
+<div class="links"><a href="https://pubmed.ncbi.nlm.nih.gov/42302936/" target="_blank" rel="noopener">PubMed</a> <a href="https://doi.org/10.1016/j.jep.2026.122066" target="_blank" rel="noopener">DOI</a></div>
+<p class="abs">Hypericum perforatum L. has been used for centuries in traditional medicine, with core therapeutic applications including alleviation of emotional, wound and burn healing and neurological disorders, and antiparasitic treatments. This review summarizes and inte…</p>
+</div>
+<div class="paper" data-search="Plant Exosome Injection: A New Boost for Postlaser Vascular Repair. Microvascular activation is a pivotal early event in oral wound healing, particularly in laser-induced injuries where thermal effects alter endothelial behavior. CD31, a key endothelial adhesion and signaling molecule, provides a reliable marker for evaluating…">
+<h3><a href="https://pubmed.ncbi.nlm.nih.gov/42239844/" target="_blank" rel="noopener">Plant Exosome Injection: A New Boost for Postlaser Vascular Repair.</a></h3>
+<div class="meta"><span class="tag">PubMed</span>The Journal of clinical and aesthetic dermatology ｜ 2026</div>
+<div class="links"><a href="https://pubmed.ncbi.nlm.nih.gov/42239844/" target="_blank" rel="noopener">PubMed</a></div>
+<p class="abs">Microvascular activation is a pivotal early event in oral wound healing, particularly in laser-induced injuries where thermal effects alter endothelial behavior. CD31, a key endothelial adhesion and signaling molecule, provides a reliable marker for evaluating…</p>
+</div>
+<div class="paper" data-search="Mesenchymal Stem Cell-Derived Extracellular Vesicles and Plant-Derived Nanovesicles as Cell-Free Therapies for Thermal Burn Healing: A Systematic Review of Preclinical Evidence and Delivery Strategies. ">
+<h3><a href="https://pubmed.ncbi.nlm.nih.gov/42201032/" target="_blank" rel="noopener">Mesenchymal Stem Cell-Derived Extracellular Vesicles and Plant-Derived Nanovesicles as Cell-Free Therapies for Thermal Burn Healing: A Systematic Review of Preclinical Evidence and Delivery Strategies.</a></h3>
+<div class="meta"><span class="tag">PubMed</span>Medical sciences (Basel, Switzerland) ｜ 2026</div>
+<div class="links"><a href="https://pubmed.ncbi.nlm.nih.gov/42201032/" target="_blank" rel="noopener">PubMed</a> <a href="https://doi.org/10.3390/medsci14020240" target="_blank" rel="noopener">DOI</a></div>
+<p class="abs"></p>
+</div>
+<div class="paper" data-search="Bioinspired engineering of Polygonum multiflorum (PM), a traditional medicinal herb, is renowned for its regenerative effects on hair growth; however, its therapeutic application has been largely confined to crude extracts. Recent advances have highlighted plant-derived nanovesicles (PD…">
+<h3><a href="https://pubmed.ncbi.nlm.nih.gov/42146009/" target="_blank" rel="noopener">Bioinspired engineering of</a></h3>
+<div class="meta"><span class="tag">PubMed</span>Frontiers in physiology ｜ 2026</div>
+<div class="links"><a href="https://pubmed.ncbi.nlm.nih.gov/42146009/" target="_blank" rel="noopener">PubMed</a> <a href="https://doi.org/10.3389/fphys.2026.1808764" target="_blank" rel="noopener">DOI</a></div>
+<p class="abs">Polygonum multiflorum (PM), a traditional medicinal herb, is renowned for its regenerative effects on hair growth; however, its therapeutic application has been largely confined to crude extracts. Recent advances have highlighted plant-derived nanovesicles (PD…</p>
+</div>
+<div class="paper" data-search="Green tea-derived exosome-like nanoparticles attenuate oxidative stress-induced skin senescence via modulation of p38 MAPK signaling. Plant-derived exosome-like nanoparticles (PDENs) have emerged as bioactive nanostructures capable of transferring molecular cargos across species; however, their mechanistic roles in mammalian stress-responsive signaling remain incompletely defined. In this st…">
+<h3><a href="https://pubmed.ncbi.nlm.nih.gov/42131805/" target="_blank" rel="noopener">Green tea-derived exosome-like nanoparticles attenuate oxidative stress-induced skin senescence via modulation of p38 MAPK signaling.</a></h3>
+<div class="meta"><span class="tag">PubMed</span>Frontiers in pharmacology ｜ 2026</div>
+<div class="links"><a href="https://pubmed.ncbi.nlm.nih.gov/42131805/" target="_blank" rel="noopener">PubMed</a> <a href="https://doi.org/10.3389/fphar.2026.1806328" target="_blank" rel="noopener">DOI</a></div>
+<p class="abs">Plant-derived exosome-like nanoparticles (PDENs) have emerged as bioactive nanostructures capable of transferring molecular cargos across species; however, their mechanistic roles in mammalian stress-responsive signaling remain incompletely defined. In this st…</p>
+</div>
+<div class="paper" data-search="Potential of extracellular vesicles from human Wharton's jelly and golden berries ( The development of biocompatible delivery systems capable of enhancing wound healing remains a major challenge in drug delivery and regenerative medicine. Hydrogels represent promising wound dressings due to their ability to maintain a moist microenvironment, …">
+<h3><a href="https://pubmed.ncbi.nlm.nih.gov/42100638/" target="_blank" rel="noopener">Potential of extracellular vesicles from human Wharton's jelly and golden berries (</a></h3>
+<div class="meta"><span class="tag">PubMed</span>ADMET & DMPK ｜ 2026</div>
+<div class="links"><a href="https://pubmed.ncbi.nlm.nih.gov/42100638/" target="_blank" rel="noopener">PubMed</a> <a href="https://doi.org/10.5599/admet.3238" target="_blank" rel="noopener">DOI</a></div>
+<p class="abs">The development of biocompatible delivery systems capable of enhancing wound healing remains a major challenge in drug delivery and regenerative medicine. Hydrogels represent promising wound dressings due to their ability to maintain a moist microenvironment, …</p>
+</div>
+<div class="paper" data-search="Plant Exosome Injections in Tongue Wounds: A Comparative Histological and Immunohistochemical Experimental Study. Tongue tip wounds are challenging due to mechanical stress, vascularity, and microbial exposure. Although the 450-nm diode laser allows precise, minimally invasive incisions, strategies to enhance healing remain limited. Exosomes, nanoscale extracellular vesic…">
+<h3><a href="https://pubmed.ncbi.nlm.nih.gov/42052617/" target="_blank" rel="noopener">Plant Exosome Injections in Tongue Wounds: A Comparative Histological and Immunohistochemical Experimental Study.</a></h3>
+<div class="meta"><span class="tag">PubMed</span>Plastic and reconstructive surgery. Global open ｜ 2026</div>
+<div class="links"><a href="https://pubmed.ncbi.nlm.nih.gov/42052617/" target="_blank" rel="noopener">PubMed</a> <a href="https://doi.org/10.1097/GOX.0000000000007616" target="_blank" rel="noopener">DOI</a></div>
+<p class="abs">Tongue tip wounds are challenging due to mechanical stress, vascularity, and microbial exposure. Although the 450-nm diode laser allows precise, minimally invasive incisions, strategies to enhance healing remain limited. Exosomes, nanoscale extracellular vesic…</p>
+</div>
+<div class="paper" data-search="Solanum nigrum L.-derived nanovesicles as novel nanotherapeutics suppressing prostate cancer progression via senescence-based antitumor activity. Current therapies for prostate cancer are limited by toxicity and acquired resistance, motivating development of biocompatible nanotherapeutics. Here, Solanum nigrum L.-derived nanovesicles (SDNVs) were isolated and characterized, showing a mean diameter of 93…">
+<h3><a href="https://pubmed.ncbi.nlm.nih.gov/42043639/" target="_blank" rel="noopener">Solanum nigrum L.-derived nanovesicles as novel nanotherapeutics suppressing prostate cancer progression via senescence-based antitumor activity.</a></h3>
+<div class="meta"><span class="tag">PubMed</span>Bioresources and bioprocessing ｜ 2026</div>
+<div class="links"><a href="https://pubmed.ncbi.nlm.nih.gov/42043639/" target="_blank" rel="noopener">PubMed</a> <a href="https://doi.org/10.1186/s40643-026-01055-y" target="_blank" rel="noopener">DOI</a></div>
+<p class="abs">Current therapies for prostate cancer are limited by toxicity and acquired resistance, motivating development of biocompatible nanotherapeutics. Here, Solanum nigrum L.-derived nanovesicles (SDNVs) were isolated and characterized, showing a mean diameter of 93…</p>
+</div>
+<div class="paper" data-search="Therapeutic potential of plant-derived exosome-like nanovesicles as a phytomedicine in age-related diseases. Plant-derived exosome-like nanovesicles (PDEVs) are emerging as breakthrough platforms for the treatment of age-related diseases (ARDs). These endogenous nanocarriers contain a variety of bioactive molecules, including microRNAs, proteins, lipids, and phytoche…">
+<h3><a href="https://pubmed.ncbi.nlm.nih.gov/42034933/" target="_blank" rel="noopener">Therapeutic potential of plant-derived exosome-like nanovesicles as a phytomedicine in age-related diseases.</a></h3>
+<div class="meta"><span class="tag">PubMed</span>Biomedicine & pharmacotherapy = Biomedecine & pharmacotherapie ｜ 2026</div>
+<div class="links"><a href="https://pubmed.ncbi.nlm.nih.gov/42034933/" target="_blank" rel="noopener">PubMed</a> <a href="https://doi.org/10.1016/j.biopha.2026.119441" target="_blank" rel="noopener">DOI</a></div>
+<p class="abs">Plant-derived exosome-like nanovesicles (PDEVs) are emerging as breakthrough platforms for the treatment of age-related diseases (ARDs). These endogenous nanocarriers contain a variety of bioactive molecules, including microRNAs, proteins, lipids, and phytoche…</p>
+</div>
+<div class="paper" data-search="Multidimensional Regulatory Mechanisms and Targeted Therapeutic Strategies for Inhibited Keratinocyte Proliferation in Diabetic Wounds. Diabetic wound healing impairment represents a pressing clinical challenge worldwide, with its high disability rate and recurrence rate imposing a heavy burden on patients and healthcare systems. Keratinocytes are the core effector cells that drive re-epitheli…">
+<h3><a href="https://pubmed.ncbi.nlm.nih.gov/42016386/" target="_blank" rel="noopener">Multidimensional Regulatory Mechanisms and Targeted Therapeutic Strategies for Inhibited Keratinocyte Proliferation in Diabetic Wounds.</a></h3>
+<div class="meta"><span class="tag">PubMed</span>Drug design, development and therapy ｜ 2026</div>
+<div class="links"><a href="https://pubmed.ncbi.nlm.nih.gov/42016386/" target="_blank" rel="noopener">PubMed</a> <a href="https://doi.org/10.2147/DDDT.S598433" target="_blank" rel="noopener">DOI</a></div>
+<p class="abs">Diabetic wound healing impairment represents a pressing clinical challenge worldwide, with its high disability rate and recurrence rate imposing a heavy burden on patients and healthcare systems. Keratinocytes are the core effector cells that drive re-epitheli…</p>
+</div>
+<div class="paper" data-search="Medicinal plant-derived nanovesicles for skin delivery: A natural biovector for therapeutics and cosmetics. Medicinal plants, widely used in traditional medicine, contain bioactive compounds such as phenolics and flavonoids that exhibit antioxidant and anti-inflammatory properties relevant to skin health. Recently, medicinal plant-derived nanovesicles (MPDNVs) have …">
+<h3><a href="https://pubmed.ncbi.nlm.nih.gov/41985748/" target="_blank" rel="noopener">Medicinal plant-derived nanovesicles for skin delivery: A natural biovector for therapeutics and cosmetics.</a></h3>
+<div class="meta"><span class="tag">PubMed</span>Journal of controlled release : official journal of the Controlled Release Society ｜ 2026</div>
+<div class="links"><a href="https://pubmed.ncbi.nlm.nih.gov/41985748/" target="_blank" rel="noopener">PubMed</a> <a href="https://doi.org/10.1016/j.jconrel.2026.114926" target="_blank" rel="noopener">DOI</a></div>
+<p class="abs">Medicinal plants, widely used in traditional medicine, contain bioactive compounds such as phenolics and flavonoids that exhibit antioxidant and anti-inflammatory properties relevant to skin health. Recently, medicinal plant-derived nanovesicles (MPDNVs) have …</p>
+</div>
+<div class="paper" data-search="From Nature to Nanomedicine: Engineered Plant-Derived Nanovesicles for Skin Disease. Plant-derived nanovesicles (PDN), as a novel class of natural nanocarriers, possess excellent biocompatibility and the capacity to load various bioactive components, offering new perspectives for the treatment of skin diseases. However, natural PDN suffer from…">
+<h3><a href="https://pubmed.ncbi.nlm.nih.gov/41978720/" target="_blank" rel="noopener">From Nature to Nanomedicine: Engineered Plant-Derived Nanovesicles for Skin Disease.</a></h3>
+<div class="meta"><span class="tag">PubMed</span>International journal of nanomedicine ｜ 2026</div>
+<div class="links"><a href="https://pubmed.ncbi.nlm.nih.gov/41978720/" target="_blank" rel="noopener">PubMed</a> <a href="https://doi.org/10.2147/IJN.S596983" target="_blank" rel="noopener">DOI</a></div>
+<p class="abs">Plant-derived nanovesicles (PDN), as a novel class of natural nanocarriers, possess excellent biocompatibility and the capacity to load various bioactive components, offering new perspectives for the treatment of skin diseases. However, natural PDN suffer from…</p>
+</div>
+<div class="paper" data-search="Comparative analysis of horsetail and lavender-derived nanovesicles in wound healing and antioxidant defense. BACKGROUND: Plant-derived exosome-like nanovesicles (pEVs) have emerged as promising natural biomaterials due to their safety profile, high biocompatibility, and rich bioactive cargo. In particular, pEVs have attracted interest because of their roles in interc…">
+<h3><a href="https://pubmed.ncbi.nlm.nih.gov/41904426/" target="_blank" rel="noopener">Comparative analysis of horsetail and lavender-derived nanovesicles in wound healing and antioxidant defense.</a></h3>
+<div class="meta"><span class="tag">Europe PMC</span>2026</div>
+<div class="links"><a href="https://pubmed.ncbi.nlm.nih.gov/41904426/" target="_blank" rel="noopener">PubMed</a> <a href="https://doi.org/10.1186/s12896-026-01146-w" target="_blank" rel="noopener">DOI</a></div>
+<p class="abs">BACKGROUND: Plant-derived exosome-like nanovesicles (pEVs) have emerged as promising natural biomaterials due to their safety profile, high biocompatibility, and rich bioactive cargo. In particular, pEVs have attracted interest because of their roles in interc…</p>
+</div>
+<div class="paper" data-search="Plant Exosome Injection with or without Low Level Laser Therapy Promotes Skin Wound Healing: An Experimental Study. <h4>Background</h4>Plant derived extracellular vesicle preparations and low level laser therapy (LLLT) each show regenerative effects in cutaneous wound healing. Their combined application may enhance early dermal repair following laser-induced skin injury. Th…">
+<h3><a href="https://pubmed.ncbi.nlm.nih.gov/42376274/" target="_blank" rel="noopener">Plant Exosome Injection with or without Low Level Laser Therapy Promotes Skin Wound Healing: An Experimental Study.</a></h3>
+<div class="meta"><span class="tag">Europe PMC</span>2026</div>
+<div class="links"><a href="https://pubmed.ncbi.nlm.nih.gov/42376274/" target="_blank" rel="noopener">PubMed</a> <a href="https://doi.org/10.1097/gox.0000000000007891" target="_blank" rel="noopener">DOI</a> <a href="https://doi.org/10.1097/GOX.0000000000007891" target="_blank" rel="noopener">来源</a></div>
+<p class="abs"><h4>Background</h4>Plant derived extracellular vesicle preparations and low level laser therapy (LLLT) each show regenerative effects in cutaneous wound healing. Their combined application may enhance early dermal repair following laser-induced skin injury. Th…</p>
+</div>
+<div class="paper" data-search="Isolation of plant-derived exosome-like nanovesicles (PDENs) from &lt;i&gt;Aloe vera&lt;/i&gt; and their effect on RAW 264.7 and 1BR3 cells as a potential anti-inflammatory and anti-photoaging agent. <h4>Aims</h4>Chronic inflammation and ultraviolet (UV)-induced oxidative stress drive tissue damage and skin photoaging. This study evaluates <i>Aloe vera</i>-derived exosome-like nanovesicles (Av-PDENs) as a natural bioactive platform for modulating inflammat…">
+<h3><a href="https://pubmed.ncbi.nlm.nih.gov/41817241/" target="_blank" rel="noopener">Isolation of plant-derived exosome-like nanovesicles (PDENs) from &lt;i&gt;Aloe vera&lt;/i&gt; and their effect on RAW 264.7 and 1BR3 cells as a potential anti-inflammatory and anti-photoaging agent.</a></h3>
+<div class="meta"><span class="tag">Europe PMC</span>2026</div>
+<div class="links"><a href="https://pubmed.ncbi.nlm.nih.gov/41817241/" target="_blank" rel="noopener">PubMed</a> <a href="https://doi.org/10.1080/20565623.2026.2641016" target="_blank" rel="noopener">DOI</a></div>
+<p class="abs"><h4>Aims</h4>Chronic inflammation and ultraviolet (UV)-induced oxidative stress drive tissue damage and skin photoaging. This study evaluates <i>Aloe vera</i>-derived exosome-like nanovesicles (Av-PDENs) as a natural bioactive platform for modulating inflammat…</p>
+</div>
+<div class="paper" data-search="The expanding role of biocompatible hydrogels in plant-derived exosome-like nanovesicles for skin diseases: prospects and challenges. <h4>Background</h4>Plant-derived exosome like nanovesicles known for their biocompatibility, minimal immunogenicity, and capacity to transport diverse therapeutic molecules, have emerged as effective carriers for targeted drug delivery. When integrated into hy…">
+<h3><a href="https://pubmed.ncbi.nlm.nih.gov/41863833/" target="_blank" rel="noopener">The expanding role of biocompatible hydrogels in plant-derived exosome-like nanovesicles for skin diseases: prospects and challenges.</a></h3>
+<div class="meta"><span class="tag">Europe PMC</span>2026</div>
+<div class="links"><a href="https://pubmed.ncbi.nlm.nih.gov/41863833/" target="_blank" rel="noopener">PubMed</a> <a href="https://doi.org/10.1080/07853890.2026.2643038" target="_blank" rel="noopener">DOI</a></div>
+<p class="abs"><h4>Background</h4>Plant-derived exosome like nanovesicles known for their biocompatibility, minimal immunogenicity, and capacity to transport diverse therapeutic molecules, have emerged as effective carriers for targeted drug delivery. When integrated into hy…</p>
+</div>
+<div class="paper" data-search="Dysregulated Repair in Aging and Disease: Extracellular Vesicles as an Emerging Protective Strategy. Tissue repair is a finely organized process that progresses via a series of phases, including hemostasis, inflammation, proliferation, and remodeling, which are coordinated by immune-stromal interactions. Aging profoundly dysregulates these processes through m…">
+<h3><a href="https://pubmed.ncbi.nlm.nih.gov/42041534/" target="_blank" rel="noopener">Dysregulated Repair in Aging and Disease: Extracellular Vesicles as an Emerging Protective Strategy.</a></h3>
+<div class="meta"><span class="tag">Europe PMC</span>2026</div>
+<div class="links"><a href="https://pubmed.ncbi.nlm.nih.gov/42041534/" target="_blank" rel="noopener">PubMed</a> <a href="https://doi.org/10.3390/cells15080662" target="_blank" rel="noopener">DOI</a></div>
+<p class="abs">Tissue repair is a finely organized process that progresses via a series of phases, including hemostasis, inflammation, proliferation, and remodeling, which are coordinated by immune-stromal interactions. Aging profoundly dysregulates these processes through m…</p>
+</div>
+<div class="paper" data-search="Exosome and biotherapeutic strategies for dermatological and oncological skin complications. <h4>Background</h4>Exosomes are nanosized extracellular vesicles (30-150 nm) that mediate intercellular communication by transferring bioactive molecules, including proteins, lipids, and nucleic acids. Their ability to regulate inflammation, immune responses, …">
+<h3><a href="https://pubmed.ncbi.nlm.nih.gov/42139022/" target="_blank" rel="noopener">Exosome and biotherapeutic strategies for dermatological and oncological skin complications.</a></h3>
+<div class="meta"><span class="tag">Europe PMC</span>2026</div>
+<div class="links"><a href="https://pubmed.ncbi.nlm.nih.gov/42139022/" target="_blank" rel="noopener">PubMed</a> <a href="https://doi.org/10.1080/07853890.2026.2673184" target="_blank" rel="noopener">DOI</a></div>
+<p class="abs"><h4>Background</h4>Exosomes are nanosized extracellular vesicles (30-150 nm) that mediate intercellular communication by transferring bioactive molecules, including proteins, lipids, and nucleic acids. Their ability to regulate inflammation, immune responses, …</p>
+</div>
+<div class="paper" data-search="Bio-Nanovesicle-Based Approaches for Hair and Skin Regeneration: An Updated Concise Review. Skin and hair follicles regenerate through coordinated stem cell niches and cyclic signaling associated with transitions among anagen, catagen, and telogen phases. In alopecia and chronic skin diseases, follicular miniaturization, immune dysregulation, persist…">
+<h3><a href="https://pubmed.ncbi.nlm.nih.gov/41972707/" target="_blank" rel="noopener">Bio-Nanovesicle-Based Approaches for Hair and Skin Regeneration: An Updated Concise Review.</a></h3>
+<div class="meta"><span class="tag">Europe PMC</span>2026</div>
+<div class="links"><a href="https://pubmed.ncbi.nlm.nih.gov/41972707/" target="_blank" rel="noopener">PubMed</a> <a href="https://doi.org/10.3390/cells15070617" target="_blank" rel="noopener">DOI</a></div>
+<p class="abs">Skin and hair follicles regenerate through coordinated stem cell niches and cyclic signaling associated with transitions among anagen, catagen, and telogen phases. In alopecia and chronic skin diseases, follicular miniaturization, immune dysregulation, persist…</p>
+</div>
+<div class="paper" data-search="Randomized Clinical Study of Laser-Assisted Delivery of Exosome Boosters for Postoperative Facial Scars and Facial Rejuvenation. Postoperative facial scars frequently remain aesthetically problematic despite advances in laser-based treatments, as residual inflammation and disorganized dermal remodeling often limit clinical outcomes. Exosome-based formulations have gained attention as bi…">
+<h3><a href="https://pubmed.ncbi.nlm.nih.gov/41752855/" target="_blank" rel="noopener">Randomized Clinical Study of Laser-Assisted Delivery of Exosome Boosters for Postoperative Facial Scars and Facial Rejuvenation.</a></h3>
+<div class="meta"><span class="tag">Europe PMC</span>2026</div>
+<div class="links"><a href="https://pubmed.ncbi.nlm.nih.gov/41752855/" target="_blank" rel="noopener">PubMed</a> <a href="https://doi.org/10.3390/life16020217" target="_blank" rel="noopener">DOI</a></div>
+<p class="abs">Postoperative facial scars frequently remain aesthetically problematic despite advances in laser-based treatments, as residual inflammation and disorganized dermal remodeling often limit clinical outcomes. Exosome-based formulations have gained attention as bi…</p>
+</div>
+<div class="paper" data-search="Exosome-Mediated Rewiring of Oxidative Stress-Inflammation-ECM Remodeling Axis Mitigates UVB-Triggered Skin Photoaging. Photoaging is a chronic and multifactorial form of skin aging primarily induced by ultraviolet (UV) radiation. It is characterized by oxidative stress, DNA damage, chronic inflammation, pigmentary alterations, and extracellular matrix (ECM) degradation, which …">
+<h3><a href="https://pubmed.ncbi.nlm.nih.gov/41982271/" target="_blank" rel="noopener">Exosome-Mediated Rewiring of Oxidative Stress-Inflammation-ECM Remodeling Axis Mitigates UVB-Triggered Skin Photoaging.</a></h3>
+<div class="meta"><span class="tag">Europe PMC</span>2026</div>
+<div class="links"><a href="https://pubmed.ncbi.nlm.nih.gov/41982271/" target="_blank" rel="noopener">PubMed</a> <a href="https://doi.org/10.2147/ijn.s600909" target="_blank" rel="noopener">DOI</a> <a href="https://doi.org/10.2147/IJN.S600909" target="_blank" rel="noopener">来源</a></div>
+<p class="abs">Photoaging is a chronic and multifactorial form of skin aging primarily induced by ultraviolet (UV) radiation. It is characterized by oxidative stress, DNA damage, chronic inflammation, pigmentary alterations, and extracellular matrix (ECM) degradation, which …</p>
+</div>
+<div class="paper" data-search="Plant-Derived Exosomes in Aesthetic Medicine. The global cosmetic surgery industry is actively seeking alternatives that can overcome the limitations of traditional animal-derived exosomes, which face clinical translation bottlenecks including high costs, immunological risks, and zoonotic disease hazards.…">
+<h3><a href="https://pubmed.ncbi.nlm.nih.gov/42495007/" target="_blank" rel="noopener">Plant-Derived Exosomes in Aesthetic Medicine.</a></h3>
+<div class="meta"><span class="tag">Europe PMC</span>2026</div>
+<div class="links"><a href="https://pubmed.ncbi.nlm.nih.gov/42495007/" target="_blank" rel="noopener">PubMed</a> <a href="https://doi.org/10.34133/bmr.0397" target="_blank" rel="noopener">DOI</a></div>
+<p class="abs">The global cosmetic surgery industry is actively seeking alternatives that can overcome the limitations of traditional animal-derived exosomes, which face clinical translation bottlenecks including high costs, immunological risks, and zoonotic disease hazards.…</p>
+</div>
+<div class="paper" data-search="Exosomes in Skin Rejuvenation: Systematic Review of Anti-Aging Effects and Clinical Applications. <h4>Introduction</h4>Exosomes, tiny extracellular vesicles (EVs) from different cell types, are gaining attention in dermatology due to their unique properties. They enhance cell communication, transport bioactive substances, and influence immune responses, ma…">
+<h3><a href="https://pubmed.ncbi.nlm.nih.gov/41912205/" target="_blank" rel="noopener">Exosomes in Skin Rejuvenation: Systematic Review of Anti-Aging Effects and Clinical Applications.</a></h3>
+<div class="meta"><span class="tag">Europe PMC</span>2026</div>
+<div class="links"><a href="https://pubmed.ncbi.nlm.nih.gov/41912205/" target="_blank" rel="noopener">PubMed</a> <a href="https://doi.org/10.5826/dpc.1601a6462" target="_blank" rel="noopener">DOI</a></div>
+<p class="abs"><h4>Introduction</h4>Exosomes, tiny extracellular vesicles (EVs) from different cell types, are gaining attention in dermatology due to their unique properties. They enhance cell communication, transport bioactive substances, and influence immune responses, ma…</p>
+</div>
+<div class="paper" data-search="Dual modes of action: direct regulation and ceRNA-mediated mechanisms of ncRNAs in dermal fibroblast senescence. Skin aging is characterized by progressive decline in dermal fibroblast function, marked by reduced extracellular matrix (ECM) synthesis, accelerated ECM degradation, diminished repair capacity, and activation of the senescence-associated secretory phenotype (…">
+<h3><a href="https://pubmed.ncbi.nlm.nih.gov/42445716/" target="_blank" rel="noopener">Dual modes of action: direct regulation and ceRNA-mediated mechanisms of ncRNAs in dermal fibroblast senescence.</a></h3>
+<div class="meta"><span class="tag">Europe PMC</span>2026</div>
+<div class="links"><a href="https://pubmed.ncbi.nlm.nih.gov/42445716/" target="_blank" rel="noopener">PubMed</a> <a href="https://doi.org/10.3389/fcell.2026.1874939" target="_blank" rel="noopener">DOI</a></div>
+<p class="abs">Skin aging is characterized by progressive decline in dermal fibroblast function, marked by reduced extracellular matrix (ECM) synthesis, accelerated ECM degradation, diminished repair capacity, and activation of the senescence-associated secretory phenotype (…</p>
+</div>
+<div class="paper" data-search="EGF-loaded, bioactive-rich &lt;i&gt;Panax notoginseng-&lt;/i&gt;derived nanovesicles accelerate skin wound healing. Wound healing is a complex physiological process involving homeostasis, inflammation, proliferation, migration and tissue remodeling. Impaired keratinocyte migration across the wound bed is a key determinant of non-healing wounds. In this context, plant-derive…">
+<h3><a href="https://pubmed.ncbi.nlm.nih.gov/41909130/" target="_blank" rel="noopener">EGF-loaded, bioactive-rich &lt;i&gt;Panax notoginseng-&lt;/i&gt;derived nanovesicles accelerate skin wound healing.</a></h3>
+<div class="meta"><span class="tag">Europe PMC</span>2026</div>
+<div class="links"><a href="https://pubmed.ncbi.nlm.nih.gov/41909130/" target="_blank" rel="noopener">PubMed</a> <a href="https://doi.org/10.3389/fcell.2026.1737435" target="_blank" rel="noopener">DOI</a></div>
+<p class="abs">Wound healing is a complex physiological process involving homeostasis, inflammation, proliferation, migration and tissue remodeling. Impaired keratinocyte migration across the wound bed is a key determinant of non-healing wounds. In this context, plant-derive…</p>
+</div>
+<div class="paper" data-search="The potential of plant-derived exosome-like nanovesicles from &lt;i&gt;Centella asiatica&lt;/i&gt; leaves (CA-PDENs) for anti-inflammation and prevention of UVB-induced photoaging. <h4>Aims</h4>This study aimed to isolate plant-derived exosome-like nanovesicles from <i>Centella asiatica</i> leaves (CA-PDENs) and evaluate their anti-inflammatory and anti-photoaging potential.<h4>Materials & methods</h4>CA-PDENs were isolated via different…">
+<h3><a href="https://pubmed.ncbi.nlm.nih.gov/41964367/" target="_blank" rel="noopener">The potential of plant-derived exosome-like nanovesicles from &lt;i&gt;Centella asiatica&lt;/i&gt; leaves (CA-PDENs) for anti-inflammation and prevention of UVB-induced photoaging.</a></h3>
+<div class="meta"><span class="tag">Europe PMC</span>2026</div>
+<div class="links"><a href="https://pubmed.ncbi.nlm.nih.gov/41964367/" target="_blank" rel="noopener">PubMed</a> <a href="https://doi.org/10.1080/20565623.2026.2654777" target="_blank" rel="noopener">DOI</a></div>
+<p class="abs"><h4>Aims</h4>This study aimed to isolate plant-derived exosome-like nanovesicles from <i>Centella asiatica</i> leaves (CA-PDENs) and evaluate their anti-inflammatory and anti-photoaging potential.<h4>Materials & methods</h4>CA-PDENs were isolated via different…</p>
+</div>
+<div class="paper" data-search="Exosome-Based Therapeutics in Dermatology and Beyond: A Narrative Review. Exosomes are small extracellular vesicles that package DNA fragments, several classes of RNA, lipids, and proteins, and are now regarded as active messengers between cells rather than as cellular debris. This narrative review synthesizes dermatologic and relat…">
+<h3><a href="https://pubmed.ncbi.nlm.nih.gov/41751237/" target="_blank" rel="noopener">Exosome-Based Therapeutics in Dermatology and Beyond: A Narrative Review.</a></h3>
+<div class="meta"><span class="tag">Europe PMC</span>2026</div>
+<div class="links"><a href="https://pubmed.ncbi.nlm.nih.gov/41751237/" target="_blank" rel="noopener">PubMed</a> <a href="https://doi.org/10.3390/biomedicines14020338" target="_blank" rel="noopener">DOI</a></div>
+<p class="abs">Exosomes are small extracellular vesicles that package DNA fragments, several classes of RNA, lipids, and proteins, and are now regarded as active messengers between cells rather than as cellular debris. This narrative review synthesizes dermatologic and relat…</p>
+</div>
+<div class="paper" data-search="Regenerative Potential of Various Plant-Derived Exosome Injections in Laser-Induced Skin Wound Healing in a Rabbit Model. <h4>Background</h4>Thermal injuries caused by laser incisions in soft tissue can delay wound healing by triggering inflammation and tissue damage. Plant-derived exosomes have recently gained attention as innovative biological agents with promising regenerative…">
+<h3><a href="https://pubmed.ncbi.nlm.nih.gov/41277469/" target="_blank" rel="noopener">Regenerative Potential of Various Plant-Derived Exosome Injections in Laser-Induced Skin Wound Healing in a Rabbit Model.</a></h3>
+<div class="meta"><span class="tag">Europe PMC</span>2025</div>
+<div class="links"><a href="https://pubmed.ncbi.nlm.nih.gov/41277469/" target="_blank" rel="noopener">PubMed</a> <a href="https://doi.org/10.1111/jocd.70561" target="_blank" rel="noopener">DOI</a></div>
+<p class="abs"><h4>Background</h4>Thermal injuries caused by laser incisions in soft tissue can delay wound healing by triggering inflammation and tissue damage. Plant-derived exosomes have recently gained attention as innovative biological agents with promising regenerative…</p>
+</div>
+</div>
+<div class="footer">由 scripts/build_site.py 自动生成 ｜ 更新时间：2026-09-08 00:23</div>
+</div>
+<button class="back-top" id="backTop" aria-label="回到顶部">↑</button>
+<script>
+(function(){const b=document.getElementById('backTop');const f=()=>b.classList.toggle('visible',window.scrollY>400);window.addEventListener('scroll',f);f();b.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));})();
+</script>
+<script>
+(function(){const input=document.getElementById('libSearch');const rows=document.querySelectorAll('.paper');input.addEventListener('input',()=>{const q=input.value.trim().toLowerCase();rows.forEach(r=>{r.style.display=(!q||r.dataset.search.toLowerCase().includes(q))?'':'none';});});})();
+</script>
+</body>
+</html>

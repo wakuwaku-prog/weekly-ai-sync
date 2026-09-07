@@ -131,6 +131,7 @@ site/
 - **自动抓取脚本**：`scripts/generate_auto_report.py`（无 Key 聚合 GitHub Trending / HF / arXiv / PubMed，生成 `auto-*.md`）
 - **植物囊泡文献追踪**：`scripts/literature_digest.py`（多来源：PubMed / Europe PMC / OpenAlex / Semantic Scholar + LLM 总结，输出到 `literature/`）
 - **文献汇总报告**：`scripts/literature_summary.py`（读取 `literature/data/papers.jsonl`，生成累计汇总报告）
+- **论文库页面**：`site/library.html`（列出 `literature/data/papers.jsonl` 中所有文献，支持标题/摘要搜索与原文跳转）
 - **邮件发送脚本**：`scripts/send_email.py`（QQ SMTP，SSL 465）
 - **自动工作流**：`.github/workflows/auto-weekly-email.yml`（每周日 09:00 北京时间自动运行）
 - 需要配置 GitHub Secrets：
