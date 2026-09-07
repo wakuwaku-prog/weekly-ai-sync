@@ -35,8 +35,8 @@ WEEKLY_DIR = ROOT / "weekly"
 def latest_report_path() -> Path:
     files = sorted(
         WEEKLY_DIR.glob("*-ai-weekly.md"),
-        # Prefer hand-edited reports over auto-generated ones, then newest first.
-        key=lambda p: (not p.name.startswith("auto-"), p.name),
+        # Prefer the LLM-enhanced auto digest for email; fall back to a hand-edited report.
+        key=lambda p: (p.name.startswith("auto-"), p.name),
         reverse=True,
     )
     if not files:
