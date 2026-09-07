@@ -129,6 +129,7 @@ site/
 ## 邮件自动推送配置
 
 - **自动抓取脚本**：`scripts/generate_auto_report.py`（无 Key 聚合 GitHub Trending / HF / arXiv / PubMed，生成 `auto-*.md`）
+- **植物囊泡文献追踪**：`scripts/literature_digest.py`（PubMed 检索植物外泌体/植物囊泡相关文献 + LLM 总结，输出到 `literature/`，并展示在网站“文献追踪”板块）
 - **邮件发送脚本**：`scripts/send_email.py`（QQ SMTP，SSL 465）
 - **自动工作流**：`.github/workflows/auto-weekly-email.yml`（每周日 09:00 北京时间自动运行）
 - 需要配置 GitHub Secrets：
@@ -153,7 +154,8 @@ site/
 - [x] 创建 GitHub 仓库 `weekly-ai-sync`（https://github.com/wakuwaku-prog/weekly-ai-sync），已改为公开
 - [x] 部署到 GitHub Pages：https://wakuwaku-prog.github.io/weekly-ai-sync/
 - [ ] 确定“可应用到自己工作中”的判断标准（用户工作背景：生物医药科研为主）
-- [ ] 第二期“植物外泌体文献”的具体检索方向，等待用户补充
+- [x] 植物囊泡文献追踪 MVP（PubMed + LLM 总结，已上线网站与邮件）
+- [ ] 植物外泌体文献检索方向可继续细化（皮肤/ECM/胶原/纤维化等关键词可按需调整）
 
 ---
 
