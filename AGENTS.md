@@ -133,7 +133,8 @@ site/
 - [x] 确定信息来源：中英文都要
 - [x] 搭建基础静态站生成脚本
 - [x] 生成第一期 AI 周报（2026-09-07 试运行，已补中文来源）
-- [ ] 确定部署托管方式（GitHub Pages / Cloudflare Pages / 其他）
+- [x] 创建 GitHub 仓库 `weekly-ai-sync`（https://github.com/wakuwaku-prog/weekly-ai-sync），已改为公开
+- [x] 部署到 GitHub Pages：https://wakuwaku-prog.github.io/weekly-ai-sync/
 - [ ] 确定“可应用到自己工作中”的判断标准（用户工作背景：生物医药科研为主）
 - [ ] 第二期“植物外泌体文献”的具体检索方向，等待用户补充
 
