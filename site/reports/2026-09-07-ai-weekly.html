@@ -178,6 +178,81 @@ article.report th { background: var(--bg-accent); }
   border-top: 1px solid var(--border);
   padding-top: 20px;
 }
+
+/* Top navigation */
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 28px;
+}
+.nav .brand {
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: -.01em;
+  color: var(--text);
+  text-decoration: none;
+}
+.nav .brand span { color: var(--accent); }
+.nav .gh {
+  font-size: .9rem;
+  color: var(--muted);
+  text-decoration: none;
+}
+.nav .gh:hover { color: var(--accent); }
+
+/* Category filter tabs */
+.filters { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 24px; }
+.filter-btn {
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--muted);
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: .9rem;
+  cursor: pointer;
+  transition: all .15s ease;
+}
+.filter-btn:hover { border-color: var(--accent); color: var(--accent); }
+.filter-btn.active {
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #fff;
+  border-color: transparent;
+}
+
+/* Category tag on cards */
+.tag {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: .72rem;
+  color: #fff;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.tag.ai { background: linear-gradient(135deg, #4f46e5, #6366f1); }
+.tag.lit { background: linear-gradient(135deg, #0ea5e9, #22d3ee); }
+
+/* Back to top */
+.back-top {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #fff;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-hover);
+  z-index: 10;
+}
+.back-top.visible { display: flex; }
 </style>
 </head>
 <body>
@@ -343,7 +418,7 @@ article.report th { background: var(--bg-accent); }
 <li>TRAE 中文社区 PUA Skill：https://forum.trae.cn/t/topic/175017</li>
 </ul>
 </article>
-<div class="footer">由 scripts/build_site.py 自动生成 ｜ 更新时间：2026-09-07 16:07</div>
+<div class="footer">由 scripts/build_site.py 自动生成 ｜ 更新时间：2026-09-08 00:12</div>
 </div>
 </body>
 </html>

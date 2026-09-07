@@ -199,6 +199,81 @@ article.report th { background: var(--bg-accent); }
   border-top: 1px solid var(--border);
   padding-top: 20px;
 }
+
+/* Top navigation */
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 28px;
+}
+.nav .brand {
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: -.01em;
+  color: var(--text);
+  text-decoration: none;
+}
+.nav .brand span { color: var(--accent); }
+.nav .gh {
+  font-size: .9rem;
+  color: var(--muted);
+  text-decoration: none;
+}
+.nav .gh:hover { color: var(--accent); }
+
+/* Category filter tabs */
+.filters { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 24px; }
+.filter-btn {
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--muted);
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: .9rem;
+  cursor: pointer;
+  transition: all .15s ease;
+}
+.filter-btn:hover { border-color: var(--accent); color: var(--accent); }
+.filter-btn.active {
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #fff;
+  border-color: transparent;
+}
+
+/* Category tag on cards */
+.tag {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: .72rem;
+  color: #fff;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.tag.ai { background: linear-gradient(135deg, #4f46e5, #6366f1); }
+.tag.lit { background: linear-gradient(135deg, #0ea5e9, #22d3ee); }
+
+/* Back to top */
+.back-top {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #fff;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-hover);
+  z-index: 10;
+}
+.back-top.visible { display: flex; }
 """
 
 
@@ -230,14 +305,17 @@ def render_report(page_title: str, body_html: str, build_time: str) -> str:
 
 def render_index(items: list[dict], build_time: str) -> str:
     cards = "\n".join(
-        f"""<a class="card" href="reports/{item['slug']}.html">
+        f"""<a class="card" data-category="{item['category_key']}" href="reports/{item['slug']}.html">
+<span class="tag {item['category_key']}">{item['category']}</span>
 <h2>{item['title']}</h2>
-<div class="date">{item['category']} · {item['date']}</div>
+<div class="date">{item['date']}</div>
 <p class="excerpt">{item['excerpt']}</p>
 </a>"""
         for item in items
     )
     empty_html = '<div class="empty">还没有内容，先把 Markdown 放进 <code>weekly/</code> 或 <code>literature/</code> 目录。</div>'
+    ai_count = sum(1 for i in items if i["category_key"] == "ai")
+    lit_count = sum(1 for i in items if i["category_key"] == "lit")
     return f"""<!doctype html>
 <html lang="zh-CN">
 <head>
@@ -248,16 +326,49 @@ def render_index(items: list[dict], build_time: str) -> str:
 </head>
 <body>
 <div class="container">
+<nav class="nav">
+<a class="brand" href="#">科研信息<span>同步站</span></a>
+<a class="gh" href="https://github.com/wakuwaku-prog/weekly-ai-sync" target="_blank" rel="noopener">GitHub ↗</a>
+</nav>
 <section class="hero">
 <h1>科研信息同步站</h1>
 <p>每周 AI 热点 ｜ 植物外泌体/植物囊泡文献追踪</p>
-<div class="badge">共 {len(items)} 项</div>
+<div class="badge">AI 周报 {ai_count} 项 ｜ 文献追踪 {lit_count} 项</div>
 </section>
+<div class="filters">
+<button class="filter-btn active" data-filter="all">全部</button>
+<button class="filter-btn" data-filter="ai">AI 周报</button>
+<button class="filter-btn" data-filter="lit">文献追踪</button>
+</div>
 <div class="card-list">
 {cards or empty_html}
 </div>
 <div class="footer">由 scripts/build_site.py 自动生成 ｜ 更新时间：{build_time}</div>
 </div>
+<button class="back-top" id="backTop" aria-label="回到顶部">↑</button>
+<script>
+(function() {{
+  const buttons = document.querySelectorAll('.filter-btn');
+  const cards = document.querySelectorAll('.card');
+  buttons.forEach(btn => {{
+    btn.addEventListener('click', () => {{
+      buttons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const cat = btn.dataset.filter;
+      cards.forEach(c => {{
+        c.style.display = (cat === 'all' || c.dataset.category === cat) ? '' : 'none';
+      }});
+    }});
+  }});
+  const backTop = document.getElementById('backTop');
+  const onScroll = () => {{
+    backTop.classList.toggle('visible', window.scrollY > 400);
+  }};
+  window.addEventListener('scroll', onScroll);
+  onScroll();
+  backTop.addEventListener('click', () => window.scrollTo({{ top: 0, behavior: 'smooth' }}));
+}})();
+</script>
 </body>
 </html>
 """
@@ -293,6 +404,7 @@ def main() -> None:
                 "title": title,
                 "date": date,
                 "category": category,
+                "category_key": "ai" if category == "AI 周报" else "lit",
                 "excerpt": excerpt_from_html(html_body),
             }
         )

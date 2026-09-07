@@ -178,43 +178,144 @@ article.report th { background: var(--bg-accent); }
   border-top: 1px solid var(--border);
   padding-top: 20px;
 }
+
+/* Top navigation */
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 28px;
+}
+.nav .brand {
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: -.01em;
+  color: var(--text);
+  text-decoration: none;
+}
+.nav .brand span { color: var(--accent); }
+.nav .gh {
+  font-size: .9rem;
+  color: var(--muted);
+  text-decoration: none;
+}
+.nav .gh:hover { color: var(--accent); }
+
+/* Category filter tabs */
+.filters { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 24px; }
+.filter-btn {
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--muted);
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: .9rem;
+  cursor: pointer;
+  transition: all .15s ease;
+}
+.filter-btn:hover { border-color: var(--accent); color: var(--accent); }
+.filter-btn.active {
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #fff;
+  border-color: transparent;
+}
+
+/* Category tag on cards */
+.tag {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: .72rem;
+  color: #fff;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.tag.ai { background: linear-gradient(135deg, #4f46e5, #6366f1); }
+.tag.lit { background: linear-gradient(135deg, #0ea5e9, #22d3ee); }
+
+/* Back to top */
+.back-top {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #fff;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-hover);
+  z-index: 10;
+}
+.back-top.visible { display: flex; }
 </style>
 </head>
 <body>
 <div class="container">
+<nav class="nav">
+<a class="brand" href="#">科研信息<span>同步站</span></a>
+<a class="gh" href="https://github.com/wakuwaku-prog/weekly-ai-sync" target="_blank" rel="noopener">GitHub ↗</a>
+</nav>
 <section class="hero">
 <h1>科研信息同步站</h1>
 <p>每周 AI 热点 ｜ 植物外泌体/植物囊泡文献追踪</p>
-<div class="badge">共 5 项</div>
+<div class="badge">AI 周报 1 项 ｜ 文献追踪 2 项</div>
 </section>
+<div class="filters">
+<button class="filter-btn active" data-filter="all">全部</button>
+<button class="filter-btn" data-filter="ai">AI 周报</button>
+<button class="filter-btn" data-filter="lit">文献追踪</button>
+</div>
 <div class="card-list">
-<a class="card" href="reports/2026-09-07-ai-weekly.html">
+<a class="card" data-category="ai" href="reports/2026-09-07-ai-weekly.html">
+<span class="tag ai">AI 周报</span>
 <h2>AI 每周热点同步（2026-08-31 ~ 2026-09-07）</h2>
-<div class="date">AI 周报 · 2026-09-07</div>
+<div class="date">2026-09-07</div>
 <p class="excerpt">AI 每周热点同步（2026-08-31 ~ 2026-09-07） 试运行第 1 期 ｜ 抓取时间：2026-09-07 ｜ 数据源：GitHub Trending / GitHub Search、Hugging Face、arXiv、PubMed、Hacker News、Exa 中文搜索 范围：AI 热点、Skill/插件/MCP、GitHub 热门 A…</p>
 </a>
-<a class="card" href="reports/lit-2026-09-08-plant-exosome.html">
+<a class="card" data-category="lit" href="reports/lit-2026-09-08-plant-exosome.html">
+<span class="tag lit">文献追踪</span>
 <h2>植物外泌体/植物囊泡文献追踪（2026-08-25 ~ 2026-09-08）</h2>
-<div class="date">文献追踪 · 2026-09-08</div>
+<div class="date">2026-09-08</div>
 <p class="excerpt">植物外泌体/植物囊泡文献追踪（2026-08-25 ~ 2026-09-08） 检索范围：("plant extracellular vesicle"[Title/Abstract] OR "plant-derived exosome"[Title/Abstract] OR "plant exosome-like nanovesicles"[Title/Ab…</p>
 </a>
-<a class="card" href="reports/lit-2026-09-08-literature-summary.html">
+<a class="card" data-category="lit" href="reports/lit-2026-09-08-literature-summary.html">
+<span class="tag lit">文献追踪</span>
 <h2>植物外泌体/植物囊泡文献汇总报告</h2>
-<div class="date">文献追踪 · 2026-09-08</div>
+<div class="date">2026-09-08</div>
 <p class="excerpt">植物外泌体/植物囊泡文献汇总报告 生成日期：2026-09-08｜累计文献：36 篇 来源分布：PubMed 20篇, Europe PMC 16篇 收录日期范围：暂无日期信息 综合总结与趋势分析（AI 生成） 植物细胞外囊泡与再生医学领域综合总结与趋势分析 一、领域总体态势与核心研究热点 植物来源细胞外囊泡（PDEVs/PDENs）正从基础表征阶段快速迈向…</p>
 </a>
-<a class="card" href="reports/lit-2026-09-07-plant-exosome.html">
-<h2>植物外泌体/植物囊泡文献追踪（2026-08-31 ~ 2026-09-07）</h2>
-<div class="date">文献追踪 · 2026-09-07</div>
-<p class="excerpt">植物外泌体/植物囊泡文献追踪（2026-08-31 ~ 2026-09-07） 检索范围：("plant extracellular vesicle"[Title/Abstract] OR "plant-derived exosome"[Title/Abstract] OR "plant exosome-like nanovesicles"[Title/Ab…</p>
-</a>
-<a class="card" href="reports/lit-2026-09-07-literature-summary.html">
-<h2>植物外泌体/植物囊泡文献汇总报告</h2>
-<div class="date">文献追踪 · 2026-09-07</div>
-<p class="excerpt">植物外泌体/植物囊泡文献汇总报告 生成日期：2026-09-07｜累计文献：36 篇 来源分布：PubMed 20篇, Europe PMC 16篇 收录日期范围：暂无日期信息 主题分组 皮肤/衰老/ECM/创面/纤维化（35 篇） Biomimetic hybrid nanoparticles from grape-derived exosome-like…</p>
-</a>
 </div>
-<div class="footer">由 scripts/build_site.py 自动生成 ｜ 更新时间：2026-09-07 16:07</div>
+<div class="footer">由 scripts/build_site.py 自动生成 ｜ 更新时间：2026-09-08 00:12</div>
 </div>
+<button class="back-top" id="backTop" aria-label="回到顶部">↑</button>
+<script>
+(function() {
+  const buttons = document.querySelectorAll('.filter-btn');
+  const cards = document.querySelectorAll('.card');
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      buttons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const cat = btn.dataset.filter;
+      cards.forEach(c => {
+        c.style.display = (cat === 'all' || c.dataset.category === cat) ? '' : 'none';
+      });
+    });
+  });
+  const backTop = document.getElementById('backTop');
+  const onScroll = () => {
+    backTop.classList.toggle('visible', window.scrollY > 400);
+  };
+  window.addEventListener('scroll', onScroll);
+  onScroll();
+  backTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+})();
+</script>
 </body>
 </html>
