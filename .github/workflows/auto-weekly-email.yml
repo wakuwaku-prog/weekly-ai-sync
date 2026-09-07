@@ -29,6 +29,9 @@ jobs:
       - name: Generate plant exosome literature digest
         run: python scripts/literature_digest.py --days 7 --extended
 
+      - name: Generate literature summary
+        run: python scripts/literature_summary.py
+
       - name: Build static site
         run: python scripts/build_site.py
 

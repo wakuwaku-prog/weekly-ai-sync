@@ -1,0 +1,259 @@
+# 植物外泌体/植物囊泡文献追踪（2026-08-25 ~ 2026-09-08）
+
+> 检索范围：("plant extracellular vesicle"[Title/Abstract] OR "plant-derived exosome"[Title/Abstract] OR "plant exosome-like nanovesicles"[Title/Abstract] OR "plant-derived nanovesicles"[Title/Abstract]) AND (skin[Title/Abstract] OR dermal[Title/Abstract] OR skin aging[Title/Abstract] OR senescence[Title/Abstract] OR extracellular matrix[Title/Abstract] OR collagen[Title/Abstract] OR wound[Title/Abstract] OR fibrosis[Title/Abstract] OR scar[Title/Abstract] OR fibroblast[Title/Abstract])
+> 数据源：PubMed / Europe PMC / OpenAlex / Semantic Scholar｜去重后 36 篇
+
+## 本周文献速览与重点推荐（AI 生成）
+
+# 植物外泌体/植物囊泡文献速览与重点推荐
+
+**（2026-08-25 ~ 2026-09-08）**
+
+
+## 一、本周研究动态概述
+
+本周植物来源细胞外囊泡（PDEVs/PDENs）研究呈现三大趋势：**一是抗皮肤光老化与抗衰老研究持续升温**，多篇文献聚焦UVB/UVA诱导的皮肤损伤、氧化应激与ECM降解的调控机制；**二是工程化修饰与递送策略成为热点**，包括膜融合杂合纳米颗粒、穿膜肽修饰、微针递送及水凝胶整合等，旨在突破天然囊泡靶向性弱和皮肤渗透有限的瓶颈；**三是创面修复（尤其糖尿病创面）与瘢痕管理的临床转化探索明显加速**，从动物模型逐步向临床研究过渡。
+
+
+## 二、重点推荐文献（5篇）
+
+### 1. Broccoli-derived nanovesicles protect against UVB-induced skin photoaging via integrated transcriptomic and proteomic reprogramming of redox and extracellular matrix homeostasis
+**PMID: 42326007** | Front Cell Dev Biol | 2026
+
+**推荐理由：** 该研究从转录组和蛋白质组双维度系统解析了西兰花来源纳米囊泡抗UVB光老化的分子机制，是目前少见的组学层面证据较为完整的植物囊泡光保护研究。研究发现其通过协同调控氧化还原平衡与ECM稳态发挥保护作用，为植物囊泡在皮肤抗衰领域的机制阐释提供了高质量数据支撑。
+
+### 2. Membrane Fusion-Based *Mirabilis himalaica*-Derived Exosome-like Nanoparticles Fused with Cell-Penetrating Peptide Mediated for Chebulinic Acid Delivery Against UVA-Induced Photoaging
+**PMID: 42505345** | Cells | 2026
+
+**推荐理由：** 本研究代表了植物囊泡工程化改造的前沿方向——将喜马拉雅紫茉莉来源囊泡与穿膜肽融合，实现中药活性成分Chebulinic Acid的靶向递送以对抗UVA光老化。该策略有效解决了天然植物囊泡皮肤穿透力不足的问题，为植物囊泡作为"天然药物载体"的精准递送提供了创新范式。
+
+### 3. Hairyvein agrimony-derived nanovesicles in microneedles eradicate intracellular bacteria and reverse senescence to heal diabetic foot osteomyelitis
+**PMID: 42442547** | J Control Release | 2026
+
+**推荐理由：** 本研究将植物囊泡与微针技术结合，用于糖尿病足骨髓炎这一极具挑战性的临床难题。其双重机制——清除胞内细菌+逆转细胞衰老——体现了植物囊泡在复杂病理微环境中的多靶点调控优势，工程技术（微针）与生物活性（囊泡）的整合策略具有较高的临床转化潜力。
+
+### 4. Biomimetic hybrid nanoparticles from grape-derived exosome-like particles and liposomes potentiate JQ1-mediated anti-fibrotic effects in hepatic stellate cells
+**PMID: 42667952** | J Pharm Sci | 2026
+
+**推荐理由：** 该研究将葡萄来源囊泡与脂质体膜融合构建仿生杂合纳米颗粒，用于递送抗纤维化药物JQ1靶向活化的肝星状细胞。虽然研究背景为肝纤维化，但其"植物囊泡-脂质体杂合"的平台技术对皮肤纤维化、瘢痕增生等ECM相关疾病的药物递送设计具有直接的方法学借鉴价值。
+
+### 5. Plant-derived extracellular vesicles (PDEVs) in anti-aging research: A review of biomedical characteristics and therapeutic applications
+**PMID: 42580599** | Ageing Res Rev | 2026
+
+**推荐理由：** 发表于老年学权威综述期刊，系统梳理了PDEVs在衰老研究中的生物学特性与治疗应用，涵盖其在年龄相关疾病中的潜在价值。该综述为领域内研究者提供了宏观视角和框架性认知，适合作为了解植物囊泡抗衰老研究全貌的入门文献。
+
+
+## 三、皮肤衰老/ECM/胶原/创面修复/纤维化相关文献标注
+
+以下文献与上述主题**高度相关**，建议重点关注：
+
+| 文献 | 主题关联 |
+|------|----------|
+| **Broccoli-derived nanovesicles…UVB-induced skin photoaging** (PMID: 42326007) | ⭐ 光老化、ECM稳态、氧化还原 |
+| ***Mirabilis himalaica*-derived ELNs + Chebulinic Acid…UVA photoaging** (PMID: 42505345) | ⭐ 光老化、胶原降解、UVA防护 |
+| **Hairyvein agrimony-derived nanovesicles in microneedles…diabetic foot osteomyelitis** (PMID: 42442547) | ⭐ 创面修复、衰老逆转 |
+| **Green tea-derived ELNs…skin senescence via p38 MAPK** (PMID: 42131805) | ⭐ 皮肤衰老、氧化应激信号通路 |
+| ***Aloe vera*-derived PDENs…anti-inflammatory and anti-photoaging** (PMID: 41817241) | ⭐ 抗炎、抗光老化 |
+| ***Centella asiatica* leaves (CA-PDENs)…UVB-induced photoaging** (PMID: 41964367) | ⭐ 抗炎、抗光老化 |
+| **Grape-derived ELPs + liposomes…anti-fibrotic (JQ1)** (PMID: 42667952) | 纤维化（肝，方法学可借鉴至皮肤） |
+| **EGF-loaded *Panax notoginseng*-derived nanovesicles…wound healing** (PMID: 41909130) | 创面修复、再上皮化 |
+| **Plant Exosome Injection…Postlaser Vascular Repair** (PMID: 42239844) | 创面修复、血管再生 |
+| **Plant Exosome Injection with/without LLLT…Skin Wound Healing** (PMID: 42376274) | 创面修复、激光联合治疗 |
+| **Horsetail and lavender-derived nanovesicles…wound healing** (PMID: 41904426) | 创面修复、抗氧化 |
+| **Regenerative Potential of Various Plant-Derived Exosome Injections…Rabbit Model** (PMID: 41277469) | 创面修复（激光损伤） |
+| **Laser-Assisted Delivery of Exosome Boosters…Facial Scars and Rejuvenation** (PMID: 41752855) | 瘢痕、面部年轻化（临床RCT） |
+| **Exosome-Mediated Rewiring of Oxidative Stress-Inflammation-ECM Remodeling Axis…UVB Photoaging** (PMID: 41982271) | 光老化、ECM重塑（综述） |
+| **Medicinal plant-derived nanovesicles for skin delivery** (PMID: 41985748) | 皮肤递送、化妆品应用（综述） |
+| **From Nature to Nanomedicine: Engineered PDNVs for Skin Disease** (PMID: 41978720) | 皮肤疾病、工程化策略（综述） |
+| **PDEVs in anti-aging research** (PMID: 42580599) | 抗衰老（综述） |
+| **Dysregulated Repair in Aging and Disease: EVs as Protective Strategy** (PMID: 42041534) | 衰老与组织修复（综述） |
+| **ncRNAs in dermal fibroblast senescence** (PMID: 42445716) | 皮肤成纤维细胞衰老、ECM（非囊泡，但机制相关） |
+
+---
+
+*以上标注基于文献标题与摘要信息，具体机制细节建议查阅原文进一步确认。*
+
+## 本周新增文献
+
+- **Biomimetic hybrid nanoparticles from grape-derived exosome-like particles and liposomes potentiate JQ1-mediated anti-fibrotic effects in hepatic stellate cells.**
+  - 来源：PubMed｜期刊：Journal of pharmaceutical sciences｜年份：2026
+  - PMID：42667952（https://pubmed.ncbi.nlm.nih.gov/42667952/）
+  - DOI：10.1016/j.xphs.2026.104484（https://doi.org/10.1016/j.xphs.2026.104484）
+  - 摘要：Activated hepatic stellate cells (HSCs) play a central role in liver fibrosis by promoting extracellular matrix deposition, oxidative stress, and pro-fibrotic signaling. Here, we engineered a membrane-fused hybrid nanoparticle by combining grape-derived exosome-like particles (GELPs) with liposomes …
+- **Plant-derived extracellular vesicles (PDEVs) in anti-aging research: A review of biomedical characteristics and therapeutic applications.**
+  - 来源：PubMed｜期刊：Ageing research reviews｜年份：2026
+  - PMID：42580599（https://pubmed.ncbi.nlm.nih.gov/42580599/）
+  - DOI：10.1016/j.arr.2026.103294（https://doi.org/10.1016/j.arr.2026.103294）
+  - 摘要：Aging is a complex, irreversible physiological process characterized by gradual deterioration of tissue structure and function, accompanied by impaired regenerative capacity, dysregulated immune homeostasis, and increased susceptibility to chronic age-related diseases (e.g., neurodegenerative disord…
+- **Advances in Chinese herbal medicine for diabetic wound treatment: from tradition to innovation.**
+  - 来源：PubMed｜期刊：Chinese medicine｜年份：2026
+  - PMID：42552551（https://pubmed.ncbi.nlm.nih.gov/42552551/）
+  - DOI：10.1186/s13020-026-01480-3（https://doi.org/10.1186/s13020-026-01480-3）
+  - 摘要：Diabetic wounds represent one of the most intractable complications of diabetes, arising from a highly complex and self-perpetuating pathological microenvironment. This milieu is characterized by chronic inflammation, oxidative stress, impaired angiogenesis, peripheral neuropathy, immune dysregulati…
+- **Membrane Fusion-Based Mirabilis Himalaica-Derived Exosome-like Nanoparticles Fused with Cell-Penetrating Peptide Mediated for Chebulinic Acid Delivery Against UVA-Induced Photoaging.**
+  - 来源：PubMed｜期刊：Cells｜年份：2026
+  - PMID：42505345（https://pubmed.ncbi.nlm.nih.gov/42505345/）
+  - DOI：10.3390/cells15141235（https://doi.org/10.3390/cells15141235）
+  - 摘要：Exposure to ultraviolet (UV), particularly UVA radiation, is a primary driver of photoaging due to its deep dermal penetration, which triggers DNA damage, collagen degradation, and immune suppression. Chebulinic acid (CA), a polyphenolic compound from
+- **Chinese herbal medicine-derived exosome-like nanovesicles for orthopaedic diseases: evidence, methods, and translation.**
+  - 来源：PubMed｜期刊：Frontiers in cell and developmental biology｜年份：2026
+  - PMID：42499705（https://pubmed.ncbi.nlm.nih.gov/42499705/）
+  - DOI：10.3389/fcell.2026.1853729（https://doi.org/10.3389/fcell.2026.1853729）
+  - 摘要：Chinese herbal medicine/medicinal plant-derived exosome-like nanovesicles (CHM/medicinal plant-derived ELNVs) are emerging as promising nanoplatforms for orthopaedic diseases because of their favorable biocompatibility, complex bioactive cargos, and potential multi-target regulatory activity. This m…
+- **Exosome ice-needling for chronic wounds in dogs: a case series.**
+  - 来源：PubMed｜期刊：Frontiers in veterinary science｜年份：2026
+  - PMID：42494954（https://pubmed.ncbi.nlm.nih.gov/42494954/）
+  - DOI：10.3389/fvets.2026.1893100（https://doi.org/10.3389/fvets.2026.1893100）
+  - 摘要：Chronic wounds in dogs represent a significant clinical challenge due to persistent inflammation and impaired tissue repair. This case series describes four canine patients with chronic, treatment-resistant cutaneous wounds treated with plant-derived exosome-like nanovesicles (PNELs) delivered via i…
+- **Hairyvein agrimony-derived nanovesicles in microneedles eradicate intracellular bacteria and reverse senescence to heal diabetic foot osteomyelitis.**
+  - 来源：PubMed｜期刊：Journal of controlled release : official journal of the Controlled Release Society｜年份：2026
+  - PMID：42442547（https://pubmed.ncbi.nlm.nih.gov/42442547/）
+  - DOI：10.1016/j.jconrel.2026.115175（https://doi.org/10.1016/j.jconrel.2026.115175）
+  - 摘要：The refractory nature of diabetic foot osteomyelitis (DFO) wounds constitutes a primary cause of disability among diabetic patients. However, currently employed interventions fall short of clinical requirements because of undefined targeting mechanisms, suboptimal wound repair, and significant adver…
+- **Broccoli-derived nanovesicles protect against UVB-induced skin photoaging via integrated transcriptomic and proteomic reprogramming of redox and extracellular matrix homeostasis.**
+  - 来源：PubMed｜期刊：Frontiers in cell and developmental biology｜年份：2026
+  - PMID：42326007（https://pubmed.ncbi.nlm.nih.gov/42326007/）
+  - DOI：10.3389/fcell.2026.1806671（https://doi.org/10.3389/fcell.2026.1806671）
+  - 摘要：Ultraviolet B (UVB) radiation is a major environmental factor driving skin photoaging by disrupting redox balance, activating inflammatory cascades, and accelerating extracellular matrix (ECM) degradation. Although plant-derived nanovesicles have emerged as promising bioactive delivery systems, thei…
+- **Hypericum perforatum L.: A legacy of herbal medicine in light of modern scientific evidence.**
+  - 来源：PubMed｜期刊：Journal of ethnopharmacology｜年份：2026
+  - PMID：42302936（https://pubmed.ncbi.nlm.nih.gov/42302936/）
+  - DOI：10.1016/j.jep.2026.122066（https://doi.org/10.1016/j.jep.2026.122066）
+  - 摘要：Hypericum perforatum L. has been used for centuries in traditional medicine, with core therapeutic applications including alleviation of emotional, wound and burn healing and neurological disorders, and antiparasitic treatments. This review summarizes and interprets current knowledge on the traditio…
+- **Plant Exosome Injection: A New Boost for Postlaser Vascular Repair.**
+  - 来源：PubMed｜期刊：The Journal of clinical and aesthetic dermatology｜年份：2026
+  - PMID：42239844（https://pubmed.ncbi.nlm.nih.gov/42239844/）
+  - 摘要：Microvascular activation is a pivotal early event in oral wound healing, particularly in laser-induced injuries where thermal effects alter endothelial behavior. CD31, a key endothelial adhesion and signaling molecule, provides a reliable marker for evaluating angiogenic onset, vessel reorganization…
+- **Mesenchymal Stem Cell-Derived Extracellular Vesicles and Plant-Derived Nanovesicles as Cell-Free Therapies for Thermal Burn Healing: A Systematic Review of Preclinical Evidence and Delivery Strategies.**
+  - 来源：PubMed｜期刊：Medical sciences (Basel, Switzerland)｜年份：2026
+  - PMID：42201032（https://pubmed.ncbi.nlm.nih.gov/42201032/）
+  - DOI：10.3390/medsci14020240（https://doi.org/10.3390/medsci14020240）
+- **Bioinspired engineering of**
+  - 来源：PubMed｜期刊：Frontiers in physiology｜年份：2026
+  - PMID：42146009（https://pubmed.ncbi.nlm.nih.gov/42146009/）
+  - DOI：10.3389/fphys.2026.1808764（https://doi.org/10.3389/fphys.2026.1808764）
+  - 摘要：Polygonum multiflorum (PM), a traditional medicinal herb, is renowned for its regenerative effects on hair growth; however, its therapeutic application has been largely confined to crude extracts. Recent advances have highlighted plant-derived nanovesicles (PDNVs) as natural carriers of bioactive mo…
+- **Green tea-derived exosome-like nanoparticles attenuate oxidative stress-induced skin senescence via modulation of p38 MAPK signaling.**
+  - 来源：PubMed｜期刊：Frontiers in pharmacology｜年份：2026
+  - PMID：42131805（https://pubmed.ncbi.nlm.nih.gov/42131805/）
+  - DOI：10.3389/fphar.2026.1806328（https://doi.org/10.3389/fphar.2026.1806328）
+  - 摘要：Plant-derived exosome-like nanoparticles (PDENs) have emerged as bioactive nanostructures capable of transferring molecular cargos across species; however, their mechanistic roles in mammalian stress-responsive signaling remain incompletely defined. In this study, we investigated the effects of gree…
+- **Potential of extracellular vesicles from human Wharton's jelly and golden berries (**
+  - 来源：PubMed｜期刊：ADMET & DMPK｜年份：2026
+  - PMID：42100638（https://pubmed.ncbi.nlm.nih.gov/42100638/）
+  - DOI：10.5599/admet.3238（https://doi.org/10.5599/admet.3238）
+  - 摘要：The development of biocompatible delivery systems capable of enhancing wound healing remains a major challenge in drug delivery and regenerative medicine. Hydrogels represent promising wound dressings due to their ability to maintain a moist microenvironment, absorb exudates, and enable controlled r…
+- **Plant Exosome Injections in Tongue Wounds: A Comparative Histological and Immunohistochemical Experimental Study.**
+  - 来源：PubMed｜期刊：Plastic and reconstructive surgery. Global open｜年份：2026
+  - PMID：42052617（https://pubmed.ncbi.nlm.nih.gov/42052617/）
+  - DOI：10.1097/GOX.0000000000007616（https://doi.org/10.1097/GOX.0000000000007616）
+  - 摘要：Tongue tip wounds are challenging due to mechanical stress, vascularity, and microbial exposure. Although the 450-nm diode laser allows precise, minimally invasive incisions, strategies to enhance healing remain limited. Exosomes, nanoscale extracellular vesicles, have emerged as potent acellular me…
+- **Solanum nigrum L.-derived nanovesicles as novel nanotherapeutics suppressing prostate cancer progression via senescence-based antitumor activity.**
+  - 来源：PubMed｜期刊：Bioresources and bioprocessing｜年份：2026
+  - PMID：42043639（https://pubmed.ncbi.nlm.nih.gov/42043639/）
+  - DOI：10.1186/s40643-026-01055-y（https://doi.org/10.1186/s40643-026-01055-y）
+  - 摘要：Current therapies for prostate cancer are limited by toxicity and acquired resistance, motivating development of biocompatible nanotherapeutics. Here, Solanum nigrum L.-derived nanovesicles (SDNVs) were isolated and characterized, showing a mean diameter of 93.4 ± 0.2 nm and a particle concentration…
+- **Therapeutic potential of plant-derived exosome-like nanovesicles as a phytomedicine in age-related diseases.**
+  - 来源：PubMed｜期刊：Biomedicine & pharmacotherapy = Biomedecine & pharmacotherapie｜年份：2026
+  - PMID：42034933（https://pubmed.ncbi.nlm.nih.gov/42034933/）
+  - DOI：10.1016/j.biopha.2026.119441（https://doi.org/10.1016/j.biopha.2026.119441）
+  - 摘要：Plant-derived exosome-like nanovesicles (PDEVs) are emerging as breakthrough platforms for the treatment of age-related diseases (ARDs). These endogenous nanocarriers contain a variety of bioactive molecules, including microRNAs, proteins, lipids, and phytochemicals, which play crucial roles in ther…
+- **Multidimensional Regulatory Mechanisms and Targeted Therapeutic Strategies for Inhibited Keratinocyte Proliferation in Diabetic Wounds.**
+  - 来源：PubMed｜期刊：Drug design, development and therapy｜年份：2026
+  - PMID：42016386（https://pubmed.ncbi.nlm.nih.gov/42016386/）
+  - DOI：10.2147/DDDT.S598433（https://doi.org/10.2147/DDDT.S598433）
+  - 摘要：Diabetic wound healing impairment represents a pressing clinical challenge worldwide, with its high disability rate and recurrence rate imposing a heavy burden on patients and healthcare systems. Keratinocytes are the core effector cells that drive re-epithelialization during wound healing, and thei…
+- **Medicinal plant-derived nanovesicles for skin delivery: A natural biovector for therapeutics and cosmetics.**
+  - 来源：PubMed｜期刊：Journal of controlled release : official journal of the Controlled Release Society｜年份：2026
+  - PMID：41985748（https://pubmed.ncbi.nlm.nih.gov/41985748/）
+  - DOI：10.1016/j.jconrel.2026.114926（https://doi.org/10.1016/j.jconrel.2026.114926）
+  - 摘要：Medicinal plants, widely used in traditional medicine, contain bioactive compounds such as phenolics and flavonoids that exhibit antioxidant and anti-inflammatory properties relevant to skin health. Recently, medicinal plant-derived nanovesicles (MPDNVs) have emerged as natural nanocarriers that com…
+- **From Nature to Nanomedicine: Engineered Plant-Derived Nanovesicles for Skin Disease.**
+  - 来源：PubMed｜期刊：International journal of nanomedicine｜年份：2026
+  - PMID：41978720（https://pubmed.ncbi.nlm.nih.gov/41978720/）
+  - DOI：10.2147/IJN.S596983（https://doi.org/10.2147/IJN.S596983）
+  - 摘要：Plant-derived nanovesicles (PDN), as a novel class of natural nanocarriers, possess excellent biocompatibility and the capacity to load various bioactive components, offering new perspectives for the treatment of skin diseases. However, natural PDN suffer from limited skin penetration and weak targe…
+- **Comparative analysis of horsetail and lavender-derived nanovesicles in wound healing and antioxidant defense.**
+  - 来源：Europe PMC｜期刊：｜年份：2026
+  - PMID：41904426（https://pubmed.ncbi.nlm.nih.gov/41904426/）
+  - DOI：10.1186/s12896-026-01146-w（https://doi.org/10.1186/s12896-026-01146-w）
+  - 摘要：BACKGROUND: Plant-derived exosome-like nanovesicles (pEVs) have emerged as promising natural biomaterials due to their safety profile, high biocompatibility, and rich bioactive cargo. In particular, pEVs have attracted interest because of their roles in intercellular communication. This study aimed …
+- **Plant Exosome Injection with or without Low Level Laser Therapy Promotes Skin Wound Healing: An Experimental Study.**
+  - 来源：Europe PMC｜期刊：｜年份：2026
+  - PMID：42376274（https://pubmed.ncbi.nlm.nih.gov/42376274/）
+  - DOI：10.1097/gox.0000000000007891（https://doi.org/10.1097/gox.0000000000007891）
+  - 摘要：<h4>Background</h4>Plant derived extracellular vesicle preparations and low level laser therapy (LLLT) each show regenerative effects in cutaneous wound healing. Their combined application may enhance early dermal repair following laser-induced skin injury. This study compares 3 commercially availab…
+- **Isolation of plant-derived exosome-like nanovesicles (PDENs) from &lt;i&gt;Aloe vera&lt;/i&gt; and their effect on RAW 264.7 and 1BR3 cells as a potential anti-inflammatory and anti-photoaging agent.**
+  - 来源：Europe PMC｜期刊：｜年份：2026
+  - PMID：41817241（https://pubmed.ncbi.nlm.nih.gov/41817241/）
+  - DOI：10.1080/20565623.2026.2641016（https://doi.org/10.1080/20565623.2026.2641016）
+  - 摘要：<h4>Aims</h4>Chronic inflammation and ultraviolet (UV)-induced oxidative stress drive tissue damage and skin photoaging. This study evaluates <i>Aloe vera</i>-derived exosome-like nanovesicles (Av-PDENs) as a natural bioactive platform for modulating inflammation and supporting tissue repair.<h4>Mat…
+- **The expanding role of biocompatible hydrogels in plant-derived exosome-like nanovesicles for skin diseases: prospects and challenges.**
+  - 来源：Europe PMC｜期刊：｜年份：2026
+  - PMID：41863833（https://pubmed.ncbi.nlm.nih.gov/41863833/）
+  - DOI：10.1080/07853890.2026.2643038（https://doi.org/10.1080/07853890.2026.2643038）
+  - 摘要：<h4>Background</h4>Plant-derived exosome like nanovesicles known for their biocompatibility, minimal immunogenicity, and capacity to transport diverse therapeutic molecules, have emerged as effective carriers for targeted drug delivery. When integrated into hydrogels, these offer improved stability,…
+- **Dysregulated Repair in Aging and Disease: Extracellular Vesicles as an Emerging Protective Strategy.**
+  - 来源：Europe PMC｜期刊：｜年份：2026
+  - PMID：42041534（https://pubmed.ncbi.nlm.nih.gov/42041534/）
+  - DOI：10.3390/cells15080662（https://doi.org/10.3390/cells15080662）
+  - 摘要：Tissue repair is a finely organized process that progresses via a series of phases, including hemostasis, inflammation, proliferation, and remodeling, which are coordinated by immune-stromal interactions. Aging profoundly dysregulates these processes through mechanisms such as immunosenescence and i…
+- **Exosome and biotherapeutic strategies for dermatological and oncological skin complications.**
+  - 来源：Europe PMC｜期刊：｜年份：2026
+  - PMID：42139022（https://pubmed.ncbi.nlm.nih.gov/42139022/）
+  - DOI：10.1080/07853890.2026.2673184（https://doi.org/10.1080/07853890.2026.2673184）
+  - 摘要：<h4>Background</h4>Exosomes are nanosized extracellular vesicles (30-150 nm) that mediate intercellular communication by transferring bioactive molecules, including proteins, lipids, and nucleic acids. Their ability to regulate inflammation, immune responses, angiogenesis, and tissue regeneration ha…
+- **Bio-Nanovesicle-Based Approaches for Hair and Skin Regeneration: An Updated Concise Review.**
+  - 来源：Europe PMC｜期刊：｜年份：2026
+  - PMID：41972707（https://pubmed.ncbi.nlm.nih.gov/41972707/）
+  - DOI：10.3390/cells15070617（https://doi.org/10.3390/cells15070617）
+  - 摘要：Skin and hair follicles regenerate through coordinated stem cell niches and cyclic signaling associated with transitions among anagen, catagen, and telogen phases. In alopecia and chronic skin diseases, follicular miniaturization, immune dysregulation, persistent inflammation, impaired vascularizati…
+- **Randomized Clinical Study of Laser-Assisted Delivery of Exosome Boosters for Postoperative Facial Scars and Facial Rejuvenation.**
+  - 来源：Europe PMC｜期刊：｜年份：2026
+  - PMID：41752855（https://pubmed.ncbi.nlm.nih.gov/41752855/）
+  - DOI：10.3390/life16020217（https://doi.org/10.3390/life16020217）
+  - 摘要：Postoperative facial scars frequently remain aesthetically problematic despite advances in laser-based treatments, as residual inflammation and disorganized dermal remodeling often limit clinical outcomes. Exosome-based formulations have gained attention as biologically active adjuncts capable of in…
+- **Exosome-Mediated Rewiring of Oxidative Stress-Inflammation-ECM Remodeling Axis Mitigates UVB-Triggered Skin Photoaging.**
+  - 来源：Europe PMC｜期刊：｜年份：2026
+  - PMID：41982271（https://pubmed.ncbi.nlm.nih.gov/41982271/）
+  - DOI：10.2147/ijn.s600909（https://doi.org/10.2147/ijn.s600909）
+  - 摘要：Photoaging is a chronic and multifactorial form of skin aging primarily induced by ultraviolet (UV) radiation. It is characterized by oxidative stress, DNA damage, chronic inflammation, pigmentary alterations, and extracellular matrix (ECM) degradation, which ultimately lead to wrinkle formation, lo…
+- **Plant-Derived Exosomes in Aesthetic Medicine.**
+  - 来源：Europe PMC｜期刊：｜年份：2026
+  - PMID：42495007（https://pubmed.ncbi.nlm.nih.gov/42495007/）
+  - DOI：10.34133/bmr.0397（https://doi.org/10.34133/bmr.0397）
+  - 摘要：The global cosmetic surgery industry is actively seeking alternatives that can overcome the limitations of traditional animal-derived exosomes, which face clinical translation bottlenecks including high costs, immunological risks, and zoonotic disease hazards. Plant-derived exosomes (PLDEs) offer a …
+- **Exosomes in Skin Rejuvenation: Systematic Review of Anti-Aging Effects and Clinical Applications.**
+  - 来源：Europe PMC｜期刊：｜年份：2026
+  - PMID：41912205（https://pubmed.ncbi.nlm.nih.gov/41912205/）
+  - DOI：10.5826/dpc.1601a6462（https://doi.org/10.5826/dpc.1601a6462）
+  - 摘要：<h4>Introduction</h4>Exosomes, tiny extracellular vesicles (EVs) from different cell types, are gaining attention in dermatology due to their unique properties. They enhance cell communication, transport bioactive substances, and influence immune responses, making them valuable for skin regeneration…
+- **Dual modes of action: direct regulation and ceRNA-mediated mechanisms of ncRNAs in dermal fibroblast senescence.**
+  - 来源：Europe PMC｜期刊：｜年份：2026
+  - PMID：42445716（https://pubmed.ncbi.nlm.nih.gov/42445716/）
+  - DOI：10.3389/fcell.2026.1874939（https://doi.org/10.3389/fcell.2026.1874939）
+  - 摘要：Skin aging is characterized by progressive decline in dermal fibroblast function, marked by reduced extracellular matrix (ECM) synthesis, accelerated ECM degradation, diminished repair capacity, and activation of the senescence-associated secretory phenotype (SASP). Recent studies demonstrate that n…
+- **EGF-loaded, bioactive-rich &lt;i&gt;Panax notoginseng-&lt;/i&gt;derived nanovesicles accelerate skin wound healing.**
+  - 来源：Europe PMC｜期刊：｜年份：2026
+  - PMID：41909130（https://pubmed.ncbi.nlm.nih.gov/41909130/）
+  - DOI：10.3389/fcell.2026.1737435（https://doi.org/10.3389/fcell.2026.1737435）
+  - 摘要：Wound healing is a complex physiological process involving homeostasis, inflammation, proliferation, migration and tissue remodeling. Impaired keratinocyte migration across the wound bed is a key determinant of non-healing wounds. In this context, plant-derived nanovesicles (PDNVs) have emerged as p…
+- **The potential of plant-derived exosome-like nanovesicles from &lt;i&gt;Centella asiatica&lt;/i&gt; leaves (CA-PDENs) for anti-inflammation and prevention of UVB-induced photoaging.**
+  - 来源：Europe PMC｜期刊：｜年份：2026
+  - PMID：41964367（https://pubmed.ncbi.nlm.nih.gov/41964367/）
+  - DOI：10.1080/20565623.2026.2654777（https://doi.org/10.1080/20565623.2026.2654777）
+  - 摘要：<h4>Aims</h4>This study aimed to isolate plant-derived exosome-like nanovesicles from <i>Centella asiatica</i> leaves (CA-PDENs) and evaluate their anti-inflammatory and anti-photoaging potential.<h4>Materials & methods</h4>CA-PDENs were isolated via differential centrifugation and polyethylene glyc…
+- **Exosome-Based Therapeutics in Dermatology and Beyond: A Narrative Review.**
+  - 来源：Europe PMC｜期刊：｜年份：2026
+  - PMID：41751237（https://pubmed.ncbi.nlm.nih.gov/41751237/）
+  - DOI：10.3390/biomedicines14020338（https://doi.org/10.3390/biomedicines14020338）
+  - 摘要：Exosomes are small extracellular vesicles that package DNA fragments, several classes of RNA, lipids, and proteins, and are now regarded as active messengers between cells rather than as cellular debris. This narrative review synthesizes dermatologic and related regenerative applications reported be…
+- **Regenerative Potential of Various Plant-Derived Exosome Injections in Laser-Induced Skin Wound Healing in a Rabbit Model.**
+  - 来源：Europe PMC｜期刊：｜年份：2025
+  - PMID：41277469（https://pubmed.ncbi.nlm.nih.gov/41277469/）
+  - DOI：10.1111/jocd.70561（https://doi.org/10.1111/jocd.70561）
+  - 摘要：<h4>Background</h4>Thermal injuries caused by laser incisions in soft tissue can delay wound healing by triggering inflammation and tissue damage. Plant-derived exosomes have recently gained attention as innovative biological agents with promising regenerative capabilities for soft tissue repair.<h4…
+
+---
+
+> 自动生成脚本：`scripts/literature_digest.py`｜数据源：PubMed / Europe PMC / OpenAlex / Semantic Scholar

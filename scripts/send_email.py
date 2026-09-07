@@ -48,7 +48,14 @@ def latest_report_path() -> Path:
 def latest_literature_path() -> Path | None:
     if not LITERATURE_DIR.exists():
         return None
-    files = sorted(LITERATURE_DIR.glob("*.md"), key=lambda p: p.name, reverse=True)
+    files = sorted(LITERATURE_DIR.glob("*plant-exosome*.md"), key=lambda p: p.name, reverse=True)
+    return files[0] if files else None
+
+
+def latest_literature_summary_path() -> Path | None:
+    if not LITERATURE_DIR.exists():
+        return None
+    files = sorted(LITERATURE_DIR.glob("*literature-summary*.md"), key=lambda p: p.name, reverse=True)
     return files[0] if files else None
 
 
@@ -116,10 +123,15 @@ def main() -> None:
 
     if not args.no_literature:
         lit_path = latest_literature_path()
+        summary_path = latest_literature_summary_path()
         if lit_path is not None:
             lit_md = lit_path.read_text(encoding="utf-8")
             md_text += "\n\n---\n\n" + lit_md
             title = f"{title} ＋ 植物囊泡文献追踪"
+        if summary_path is not None:
+            summary_md = summary_path.read_text(encoding="utf-8")
+            md_text += "\n\n---\n\n" + summary_md
+            title = f"{title} ＋ 文献汇总"
 
     send_email(md_text, title)
 
