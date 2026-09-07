@@ -272,7 +272,7 @@ def main() -> None:
     REPORTS_DIR.mkdir(parents=True, exist_ok=True)
 
     report_files = sorted(
-        WEEKLY_DIR.glob("*-ai-weekly.md"),
+        (p for p in WEEKLY_DIR.glob("*-ai-weekly.md") if not p.name.startswith("auto-")),
         key=lambda p: p.name,
         reverse=True,
     )

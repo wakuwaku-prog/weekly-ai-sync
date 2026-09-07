@@ -126,6 +126,18 @@ site/
     2. 需要时配置登录：`agent-reach configure twitter-cookies`、`agent-reach configure xhs-cookies`、`agent-reach configure --from-browser chrome --platform xueqiu`
     3. 小宇宙需要免费 Groq Key：`agent-reach configure groq-key`（去 https://console.groq.com 获取）
 
+## 邮件自动推送配置
+
+- **自动抓取脚本**：`scripts/generate_auto_report.py`（无 Key 聚合 GitHub Trending / HF / arXiv / PubMed，生成 `auto-*.md`）
+- **邮件发送脚本**：`scripts/send_email.py`（QQ SMTP，SSL 465）
+- **自动工作流**：`.github/workflows/auto-weekly-email.yml`（每周日 09:00 北京时间自动运行）
+- 需要配置 GitHub Secrets：
+  - `SMTP_USER` = `epiphany_0421@qq.com`
+  - `SMTP_AUTH_CODE` = QQ 邮箱授权码（不是登录密码）
+  - `MAIL_TO` = `epiphany_0421@qq.com`
+- QQ 邮箱开启方法：设置 → 账户 → 开启 SMTP 服务 → 生成授权码
+- 当前待办：收到用户的 SMTP 授权码后，配置 Secret 并测试发送
+
 ## 当前状态与待办
 
 - [x] 确定呈现方式：静态网站
