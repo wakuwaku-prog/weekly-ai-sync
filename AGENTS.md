@@ -207,6 +207,12 @@ site/
 
 ## 操作记录（每次执行后追加）
 
+### 2026-09-08 第十五轮（文档：补充高德 Key 官方获取教程链接）
+- 用户指定把官方教学页 https://lbs.amap.com/api/mcp-server/create-project-and-key 加入"如何获取高德 API"的指南
+- 已补 4 处：travel-site/PLAN.md（3.2 配置表第一行）、travel-planner-kit/README.md（快速上手第 1 步）、travel-site/README.md（注意行）、travel-planner-kit/SKILL.md（硬规则）
+- 推送中断两次（github.com:443 抖动），网络恢复后重试成功：travel-site `95179b1`、模板 `3705ec7`
+- 遗留：图片帖 OCR / 酒店价格核实 / 船班时刻（可选精修）
+
 ### 2026-09-08 第十四轮（地图仅行程栏 + 手机端占屏优化）
 - 用户反馈：① 地图不该在其他栏目出现；② 手机端页面被地图+悬浮导航占满
 - 修复（pilot 实测验证）：
