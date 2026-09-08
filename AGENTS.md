@@ -167,3 +167,66 @@ site/
 - 所有周报先落盘为 Markdown，保留可追溯来源
 - 内容强调“可应用性”，不只是罗列信息
 - 后续如有新的决定，优先更新本文件同步
+
+---
+
+# 项目二：旅行规划网站（travel-site）
+
+> 详细方案见 `travel-site/PLAN.md`（调研参考 / 构建方案 / 数据模型 / 风险对策），本文档只同步“执行状态与操作记录”。
+
+## 项目目标
+
+用户告知目的地/天数/日期/出发地/人数/预算/偏好 → Agent 调研（小红书 ≥20 帖 + 视频 ≥10 个含字幕评论）→ 整理攻略（行程/酒店位置/交通/特色/美食/项目）→ 高德地图规划线路 + 一键导航 → 生成网站（栏目：行程、景点指南、当地特色体验、餐饮指南、出发前准备、旅行提醒）。
+
+## 关键决策（已定）
+
+- 呈现：静态站（Python 脚本生成 → GitHub Pages/Vercel），与项目一体系一致，**不依赖常驻后端**
+- 高德三层：Web 服务预计算路线（`/direction/driving` 等）+ 前端 JS API 画线 + `uri.amap.com/navigation` 一键导航按钮（写入收藏夹官方不支持）
+- 参考项目：`hiyeshu/trip-map-builder`（Agent Skill 范式）、`tutu-zzz/zhilv-yuntu`（高德全链路 + LLM 只输出 POI ID、服务层回填真实数据——防幻觉）
+- 数据模型：`data/trips/trip-<目的地>-<日期>.json`（meta/sources/pois/hotels/restaurants/experiences/itinerary/tips），来源可追溯（sourceIds）
+
+## Skill / API / 工具配置状态
+
+| 项 | 状态 |
+|---|---|
+| agent-reach v1.5.0 | ✅ 已装（GitHub/B站/YouTube/Exa 可用） |
+| video-to-subtitle-summary | ✅ 已装，**待配 AI-Douyin/TikHub Key**（抖音/小红书视频解析） |
+| opencli 1.8.7 | ✅ 已装，**待装 Chrome 扩展**（小红书调研卡点，Extension not connected） |
+| bili-cli 0.6.2 / yt-dlp / ffmpeg | ✅ 可用（B站字幕需登录：`bili login` 或 cookie） |
+| 高德 Key（Web服务+JS） | ✅ 已配置 `travel-site/.env`（gitignore 保护，勿提交） |
+| exa-search (mcporter) | ✅ 可用 |
+| 待补 | AI-Douyin Key / TikHub Token、OpenCLI 扩展或 xhs Cookie、B站登录、部署域名白名单 |
+
+## 执行进度
+
+- [x] 2026-09-08 第一轮：方案 + 配置 + 调研种子 + 地图管线 + 网站初版（详见下方记录）
+- [ ] M1 补齐：小红书 20 篇、抖音 5 个、B站字幕
+- [ ] 真实餐厅/酒店/价格回填 trip JSON（LLM 输出只做候选，坐标/营业信息以高德回填为准）
+- [ ] 重跑 build_site → 部署 GitHub Pages/Vercel + 高德 JS API 域名白名单
+
+## 操作记录（每次执行后追加）
+
+### 2026-09-08 第二轮（目标续跑）
+- **环境**：OpenCLI 扩展已连接（v1.0.24，ℹ️ 用户已装 Chrome）；faster-whisper venv 就绪；B站未登录但 **yt-dlp 可匿名下载音频**（绕开字幕登录墙成功）
+- **决策**：抖音渠道**跳过**（AI-Douyin/TikHub 需付费），视频源以 B站为主（种子 16 个已够 ≥10）
+- **转写**：后台子代理对 5 个关键 B站视频（≈69min）下载+转写中，产出 `data/raw/subtitles/*.txt` + `data/research/bilibili_notes.md`
+- **数据**：高德 `place/text` 回填**真实餐厅/酒店**（老溪岸沙茶面、阿忠食坊、百赞姜母鸭、黄则和花生汤、延鹭客栈 等，含坐标/POI ID）；高德天气 API 写入真实预报到 `tips.weather`
+- **网站**：新增「🎨 特色体验」栏目（6 栏目齐）；餐饮面板渲染真实餐厅卡片；`site/index.html` 26KB 浏览器验收通过
+- **小红书卡点（仍未解）**：search 被 `AUTH_REQUIRED` 拦截、note 详情被风控 `SECURITY_BLOCK`；`login` 报 already_logged_in（Epiphany）但搜索仍失败；feed 通道**已验证可读 25 篇**（`data/research/xhs_feed_seed.json`，通用话题非厦门定向）
+- **下一步**：等用户提供小红书分享链接或刷新登录态 → 定向采集 20 篇厦门帖；转写完成后提炼要点并入行程；部署
+
+### 2026-09-08 第一轮
+- GitHub 调研：锁定 trip-map-builder / zhilv-yuntu 等 10+ 参考项目；确认“行程导入高德线路”三种做法可行
+- 落盘：`travel-site/PLAN.md`、`travel-site/SKILL.md`（travel-research 技能草稿）、`travel-site/config.example.json`
+- 收集首次行程参数：**厦门 · 3天（2026-09-18~20 示例）· 上海出发 · 2人 · 舒适 · 自然风光/人文/美食/海岛 · 均衡**
+- M0：高德 Key `2525e1…b7ba` 验证通过（geocode / place/text / driving 全 OK），写入 `travel-site/.env`
+- M1 部分：`data/research/bilibili_seed.json`（16 个不重复 B站视频，去重按播放量排序）；`data/research/xiamen_pois_raw.json`（12 个 POI 坐标由高德补齐）
+- M2：`travel-site/scripts/amap/route_fill.py` 打通——三天逐日驾车路线真实距离/耗时已回写 trip JSON（D1 12.42km/64min，D2 45.16km/82.5min，D3 23.04km/47.2min）
+- M3：`travel-site/scripts/build_site.py` → `travel-site/site/index.html`（自包含 18KB）：五栏目 tab + 每日时间轴 + 高德 JS 地图 + 每 POI「高德导航」按钮；浏览器验收通过（file:// 打开）
+- 待用户配合（卡点）：① OpenCLI Chrome 扩展安装或 `agent-reach configure xhs-cookies`；② AI-Douyin/TikHub Key；③ 可选 `bili login`
+
+## 执行同步约定
+
+- **每轮执行结束后，将“做了什么 / 改了什么 / 卡在哪 / 下一步”追加到本文件“操作记录”**，并同步更新“执行进度”勾选框
+- 配置/凭据只写引用不写明文（Key 存 `travel-site/.env`）；来源链接必须可追溯
+- 出错与重试链也记录（如 B站 GBK 编码、yt-dlp cookie 锁、小红书登录墙）

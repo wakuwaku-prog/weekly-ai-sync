@@ -1,0 +1,722 @@
+{
+ "meta": {
+  "destination": "厦门",
+  "slug": "xiamen",
+  "dates": [
+   "2026-09-18",
+   "2026-09-19",
+   "2026-09-20"
+  ],
+  "days": 3,
+  "departureCity": "上海",
+  "travelers": "2人",
+  "budget": "舒适",
+  "preferences": [
+   "自然风光",
+   "人文历史",
+   "美食",
+   "海岛度假"
+  ],
+  "pace": "均衡",
+  "sources": {
+   "videos": 16,
+   "posts": 0,
+   "note": "小红书定向搜索被风控拦截；feed 通道已验证可读 25 篇，待用户重登/提供链接后定向采集"
+  },
+  "generatedAt": "2026-09-08",
+  "status": "调研进行中：B站转写后台运行中；餐厅/酒店已换入高德真实候选"
+ },
+ "sources": [
+  {
+   "id": "v01",
+   "platform": "bilibili",
+   "type": "video",
+   "url": "https://www.bilibili.com/video/BV1qJ4m1G7Gm",
+   "title": "套路多、花费高、体验差？厦门3天2晚旅游攻略",
+   "author": "KK叫阿KEN",
+   "play": 444626,
+   "status": "候选",
+   "summary": "",
+   "used": true
+  },
+  {
+   "id": "v02",
+   "platform": "bilibili",
+   "type": "video",
+   "url": "https://www.bilibili.com/video/BV1apDMBTEED",
+   "title": "可能是最全的厦门旅游攻略（不踩雷版）",
+   "author": "码语者和杰妮",
+   "play": 66012,
+   "status": "候选",
+   "summary": "",
+   "used": true
+  },
+  {
+   "id": "v03",
+   "platform": "bilibili",
+   "type": "video",
+   "url": "https://www.bilibili.com/video/BV1UCrVBRELu",
+   "title": "厦门超详细保姆级自由行攻略（路线、交通、避坑）",
+   "author": "那是sn",
+   "play": 148657,
+   "status": "候选",
+   "summary": "",
+   "used": true
+  },
+  {
+   "id": "v04",
+   "platform": "bilibili",
+   "type": "video",
+   "url": "https://www.bilibili.com/video/BV1dbyFBBE9X",
+   "title": "厦门人眼中的厦门攻略，拒绝人挤人踩大坑！",
+   "author": "厦门的小火车tiger",
+   "play": 135647,
+   "status": "候选",
+   "summary": "",
+   "used": true
+  },
+  {
+   "id": "v05",
+   "platform": "bilibili",
+   "type": "video",
+   "url": "https://www.bilibili.com/video/BV12d3NzzEEE",
+   "title": "厦门本地人推荐的24小时美食小店盘点",
+   "author": "chi_chi_",
+   "play": 94071,
+   "status": "候选",
+   "summary": "",
+   "used": true
+  },
+  {
+   "id": "v06",
+   "platform": "bilibili",
+   "type": "video",
+   "url": "https://www.bilibili.com/video/BV1V5j96nESh",
+   "title": "泉州好吃到哭泣！30种泉州特色美食/厦门周边吃通",
+   "author": "星氪旅行记",
+   "play": 57108,
+   "status": "候选",
+   "summary": "",
+   "used": false
+  },
+  {
+   "id": "v07",
+   "platform": "bilibili",
+   "type": "video",
+   "url": "https://www.bilibili.com/video/BV1xb421J775",
+   "title": "12分钟带你看懂厦门，鼓浪屿、山海健康步道路线",
+   "author": "厦门导游小辉",
+   "play": 57028,
+   "status": "候选",
+   "summary": "",
+   "used": true
+  },
+  {
+   "id": "v08",
+   "platform": "bilibili",
+   "type": "video",
+   "url": "https://www.bilibili.com/video/BV14oR5YYE1K",
+   "title": "挑战成为厦门本地人，在店里吃遍全厦超全美食攻略",
+   "author": "爱吃的达达",
+   "play": 3981602,
+   "status": "候选",
+   "summary": "",
+   "used": true
+  },
+  {
+   "id": "v09",
+   "platform": "bilibili",
+   "type": "video",
+   "url": "https://www.bilibili.com/video/BV1Vs4y177Xa",
+   "title": "厦门vlog小吃篇：本地人的厦门美食攻略",
+   "author": "阿毛的旅行日记",
+   "play": 278032,
+   "status": "候选",
+   "summary": "",
+   "used": true
+  },
+  {
+   "id": "v10",
+   "platform": "bilibili",
+   "type": "video",
+   "url": "https://www.bilibili.com/video/BV1iM4y1f7V2",
+   "title": "到了厦门除了吃就是江头美食，48h厦门美食vlog",
+   "author": "百变小樱",
+   "play": 236204,
+   "status": "候选",
+   "summary": "",
+   "used": true
+  }
+ ],
+ "pois": [
+  {
+   "id": "p01",
+   "category": "景点",
+   "name": "鼓浪屿",
+   "address": "厦门市思明区",
+   "lng": 118.066102,
+   "lat": 24.446214,
+   "day": 1,
+   "slot": "上午",
+   "durationMin": 240,
+   "bookingRequired": true,
+   "bookingNote": "需在「厦门轮渡」小程序购船票",
+   "ticketPrice": "船票约35元起",
+   "openHours": "轮渡 7:10-18:30 左右",
+   "tags": [
+    "世界遗产",
+    "万国建筑",
+    "钢琴"
+   ],
+   "notes": "早班船人少体验好",
+   "sourceIds": [
+    "v01",
+    "v07"
+   ],
+   "checked": true
+  },
+  {
+   "id": "p02",
+   "category": "街区",
+   "name": "中山路步行街",
+   "address": "厦门市思明区中山路",
+   "lng": 118.081903,
+   "lat": 24.454104,
+   "day": 1,
+   "slot": "傍晚",
+   "durationMin": 150,
+   "bookingRequired": false,
+   "ticketPrice": "免费",
+   "openHours": "全天",
+   "tags": [
+    "骑楼",
+    "小吃",
+    "夜景"
+   ],
+   "notes": "小吃与伴手礼集中地",
+   "sourceIds": [
+    "v01"
+   ],
+   "checked": true
+  },
+  {
+   "id": "p03",
+   "category": "街区",
+   "name": "沙坡尾艺术西区",
+   "address": "厦门市思明区大学路",
+   "lng": 118.087587,
+   "lat": 24.437609,
+   "day": 1,
+   "slot": "晚上",
+   "durationMin": 120,
+   "bookingRequired": false,
+   "ticketPrice": "免费",
+   "openHours": "全天，店铺约10:00-22:00",
+   "tags": [
+    "文艺",
+    "老渔港",
+    "灯光秀"
+   ],
+   "notes": "周五六晚有灯光秀",
+   "sourceIds": [
+    "v03"
+   ],
+   "checked": true
+  },
+  {
+   "id": "p04",
+   "category": "景点",
+   "name": "厦门园林植物园",
+   "address": "厦门市思明区虎园路",
+   "lng": 118.109277,
+   "lat": 24.447728,
+   "day": 2,
+   "slot": "上午",
+   "durationMin": 180,
+   "bookingRequired": false,
+   "ticketPrice": "约30元",
+   "openHours": "6:30-18:00",
+   "tags": [
+    "雨林世界",
+    "喷雾",
+    "多肉区"
+   ],
+   "notes": "雨林喷雾约 8:00-9:30 / 15:00-16:30",
+   "sourceIds": [
+    "v03"
+   ],
+   "checked": true
+  },
+  {
+   "id": "p05",
+   "category": "人文",
+   "name": "南普陀寺",
+   "address": "厦门市思明区思明南路",
+   "lng": 118.095336,
+   "lat": 24.440836,
+   "day": 2,
+   "slot": "上午",
+   "durationMin": 90,
+   "bookingRequired": false,
+   "ticketPrice": "免费",
+   "openHours": "8:00-17:00",
+   "tags": [
+    "闽南佛教",
+    "素饼"
+   ],
+   "notes": "与厦大相邻",
+   "sourceIds": [
+    "v04"
+   ],
+   "checked": true
+  },
+  {
+   "id": "p06",
+   "category": "海滩",
+   "name": "白城沙滩",
+   "address": "厦门市思明区环岛南路",
+   "lng": 118.100875,
+   "lat": 24.432281,
+   "day": 2,
+   "slot": "下午",
+   "durationMin": 90,
+   "bookingRequired": false,
+   "ticketPrice": "免费",
+   "openHours": "全天",
+   "tags": [
+    "沙滩",
+    "日落"
+   ],
+   "notes": "紧邻厦门大学",
+   "sourceIds": [
+    "v03"
+   ],
+   "checked": true
+  },
+  {
+   "id": "p07",
+   "category": "道路",
+   "name": "环岛路",
+   "address": "厦门市思明区环岛路",
+   "lng": 118.142325,
+   "lat": 24.431453,
+   "day": 2,
+   "slot": "下午",
+   "durationMin": 120,
+   "bookingRequired": false,
+   "ticketPrice": "免费",
+   "openHours": "全天",
+   "tags": [
+    "骑行",
+    "海景",
+    "椰风"
+   ],
+   "notes": "可骑行，注意防晒",
+   "sourceIds": [
+    "v03",
+    "v07"
+   ],
+   "checked": true
+  },
+  {
+   "id": "p08",
+   "category": "景区",
+   "name": "集美学村",
+   "address": "厦门市集美区",
+   "lng": 118.103353,
+   "lat": 24.572373,
+   "day": 3,
+   "slot": "上午",
+   "durationMin": 180,
+   "bookingRequired": false,
+   "ticketPrice": "免费",
+   "openHours": "全天",
+   "tags": [
+    "嘉庚建筑",
+    "海上地铁",
+    "鳌园"
+   ],
+   "notes": "地铁1号线高崎→集美学村站海景段",
+   "sourceIds": [
+    "v03"
+   ],
+   "checked": true
+  },
+  {
+   "id": "p09",
+   "category": "街区",
+   "name": "曾厝垵",
+   "address": "厦门市思明区曾厝垵",
+   "lng": 118.063212,
+   "lat": 24.447955,
+   "day": 3,
+   "slot": "中午",
+   "durationMin": 120,
+   "bookingRequired": false,
+   "ticketPrice": "免费",
+   "openHours": "全天",
+   "tags": [
+    "文创村",
+    "小吃",
+    "民宿"
+   ],
+   "notes": "游客较多，可选择性打卡",
+   "sourceIds": [
+    "v01"
+   ],
+   "checked": true
+  },
+  {
+   "id": "p10",
+   "category": "观景",
+   "name": "黄厝海滩",
+   "address": "厦门市思明区环岛南路",
+   "lng": 118.228083,
+   "lat": 24.64782,
+   "day": 2,
+   "slot": "傍晚（日落/日出）",
+   "durationMin": 90,
+   "bookingRequired": false,
+   "ticketPrice": "免费",
+   "openHours": "全天",
+   "tags": [
+    "日出",
+    "人少",
+    "野沙滩感"
+   ],
+   "notes": "日出观赏TOP1候选",
+   "sourceIds": [
+    "v04"
+   ],
+   "checked": true
+  }
+ ],
+ "hotels": [
+  {
+   "id": "h01",
+   "name": "延鹭客栈(厦门中山路店)",
+   "area": "后江埭路29-12号",
+   "lng": 118.09393,
+   "lat": 24.465044,
+   "poiId": "B025004L4Z",
+   "priceRange": "舒适档 ¥400-800/晚（示例估算）",
+   "recommend": true,
+   "notes": "真实候选来自高德 POI；价格待调研确认"
+  }
+ ],
+ "restaurants": [
+  {
+   "id": "r01",
+   "name": "老溪岸沙茶面",
+   "type": "沙茶面",
+   "avgPrice": 25,
+   "day": 1,
+   "area": "溪岸路224号",
+   "lng": 118.088955,
+   "lat": 24.461247,
+   "poiId": "B0FFH2GMPZ",
+   "dianpingKeyword": "厦门 沙茶面",
+   "tips": "高德 POI 真实坐标；人均为估算（示例档）",
+   "sourceIds": [
+    "v05",
+    "v08"
+   ],
+   "checked": true
+  },
+  {
+   "id": "r02",
+   "name": "阿忠食坊大排档·20年老店(万象城店)",
+   "type": "海蛎煎",
+   "avgPrice": 50,
+   "day": 2,
+   "area": "金榜路111之一(湖滨东路地铁站2号口步行230米)",
+   "lng": 118.10943,
+   "lat": 24.471967,
+   "poiId": "B02500QG1G",
+   "dianpingKeyword": "厦门 海蛎煎",
+   "tips": "高德 POI 真实坐标；人均为估算（示例档）",
+   "sourceIds": [
+    "v05",
+    "v08"
+   ],
+   "checked": true
+  },
+  {
+   "id": "r03",
+   "name": "百赞姜母鸭(思明南路店)",
+   "type": "姜母鸭",
+   "avgPrice": 80,
+   "day": 1,
+   "area": "思明南路391号",
+   "lng": 118.085495,
+   "lat": 24.44611,
+   "poiId": "B0FFF5WF5X",
+   "dianpingKeyword": "厦门 姜母鸭",
+   "tips": "高德 POI 真实坐标；人均为估算（示例档）",
+   "sourceIds": [
+    "v05",
+    "v08"
+   ],
+   "checked": true
+  },
+  {
+   "id": "r04",
+   "name": "黄则和花生汤(中山路总店)",
+   "type": "花生汤",
+   "avgPrice": 30,
+   "day": 2,
+   "area": "中山路22-24号",
+   "lng": 118.076185,
+   "lat": 24.453358,
+   "poiId": "B025003Z7S",
+   "dianpingKeyword": "厦门 花生汤",
+   "tips": "高德 POI 真实坐标；人均为估算（示例档）",
+   "sourceIds": [
+    "v05",
+    "v08"
+   ],
+   "checked": true
+  }
+ ],
+ "experiences": [
+  {
+   "id": "e01",
+   "name": "鼓浪屿轮渡+岛屿漫步",
+   "where": "厦门轮渡码头→鼓浪屿",
+   "durationMin": 240,
+   "price": "船票35元起",
+   "bookingRequired": true,
+   "bookingLink": "微信搜索「厦门轮渡」",
+   "bestFor": "全员",
+   "sourceIds": [
+    "v01"
+   ]
+  },
+  {
+   "id": "e02",
+   "name": "环岛路骑行",
+   "where": "环岛路（白城→黄厝）",
+   "durationMin": 120,
+   "price": "共享单车/租车约20-50元",
+   "bookingRequired": false,
+   "bestFor": "年轻人/情侣",
+   "sourceIds": [
+    "v07"
+   ]
+  },
+  {
+   "id": "e03",
+   "name": "海上地铁海景段",
+   "where": "地铁1号线高崎→集美学村",
+   "durationMin": 30,
+   "price": "地铁票价约2-4元",
+   "bookingRequired": false,
+   "bestFor": "全员",
+   "sourceIds": [
+    "v03"
+   ]
+  },
+  {
+   "id": "e04",
+   "name": "植物园雨林喷雾打卡",
+   "where": "厦门园林植物园雨林世界",
+   "durationMin": 60,
+   "price": "含在门票内",
+   "bookingRequired": false,
+   "bestFor": "摄影/亲子",
+   "sourceIds": [
+    "v03"
+   ]
+  }
+ ],
+ "itinerary": [
+  {
+   "day": 1,
+   "date": "2026-09-18",
+   "theme": "老城人文：鼓浪屿→中山路→沙坡尾",
+   "area": "思明老城区",
+   "items": [
+    {
+     "poiId": "p01",
+     "time": "08:30-12:30"
+    },
+    {
+     "poiId": "r01",
+     "time": "12:30-13:30"
+    },
+    {
+     "poiId": "p02",
+     "time": "17:00-19:30"
+    },
+    {
+     "poiId": "p03",
+     "time": "19:30-21:30"
+    }
+   ],
+   "dailyRoute": {
+    "mode": "walking+driving",
+    "polylines": [],
+    "distanceKm": 12.42,
+    "durationMin": 64.0,
+    "note": "路线占位，调研后由高德 direction API 填充",
+    "legs": [
+     {
+      "from": "p01",
+      "to": "p02",
+      "distanceKm": 8.45,
+      "durationMin": 50.6
+     },
+     {
+      "from": "p02",
+      "to": "p03",
+      "distanceKm": 3.97,
+      "durationMin": 13.4
+     }
+    ]
+   },
+   "notes": "鼓浪屿船票提前订；晚餐后可逛中山路夜景"
+  },
+  {
+   "day": 2,
+   "date": "2026-09-19",
+   "theme": "山海风光：植物园→厦大→环岛路→黄厝",
+   "area": "思明东南",
+   "items": [
+    {
+     "poiId": "p04",
+     "time": "08:30-11:30"
+    },
+    {
+     "poiId": "p05",
+     "time": "11:30-13:00"
+    },
+    {
+     "poiId": "r02",
+     "time": "13:00-14:00"
+    },
+    {
+     "poiId": "p06",
+     "time": "14:30-16:00"
+    },
+    {
+     "poiId": "p07",
+     "time": "16:00-18:00"
+    },
+    {
+     "poiId": "p10",
+     "time": "18:00-19:00"
+    }
+   ],
+   "dailyRoute": {
+    "mode": "driving",
+    "polylines": [],
+    "distanceKm": 45.16,
+    "durationMin": 82.5,
+    "note": "路线占位",
+    "legs": [
+     {
+      "from": "p04",
+      "to": "p05",
+      "distanceKm": 2.76,
+      "durationMin": 25.1
+     },
+     {
+      "from": "p05",
+      "to": "p06",
+      "distanceKm": 6.57,
+      "durationMin": 14.4
+     },
+     {
+      "from": "p06",
+      "to": "p07",
+      "distanceKm": 5.11,
+      "durationMin": 9.2
+     },
+     {
+      "from": "p07",
+      "to": "p10",
+      "distanceKm": 30.73,
+      "durationMin": 33.8
+     }
+    ]
+   },
+   "notes": "植物园雨林喷雾在上午；黄厝适合看日落"
+  },
+  {
+   "day": 3,
+   "date": "2026-09-20",
+   "theme": "闽南人文：集美学村→曾厝垵→返程",
+   "area": "集美+思明",
+   "items": [
+    {
+     "poiId": "p08",
+     "time": "09:00-12:00"
+    },
+    {
+     "poiId": "r03",
+     "time": "12:00-13:30"
+    },
+    {
+     "poiId": "p09",
+     "time": "14:00-16:00"
+    }
+   ],
+   "dailyRoute": {
+    "mode": "driving",
+    "polylines": [],
+    "distanceKm": 23.04,
+    "durationMin": 47.2,
+    "note": "路线占位",
+    "legs": [
+     {
+      "from": "p08",
+      "to": "p09",
+      "distanceKm": 23.04,
+      "durationMin": 47.2
+     }
+    ]
+   },
+   "notes": "返程航班/动车预留时间"
+  }
+ ],
+ "tips": {
+  "weather": {
+   "season": "9月中下旬（参考近期实况）",
+   "high": 31,
+   "low": 24,
+   "advice": "参考高德实况预报：2026-09-08 小雨/小雨 31~24°C；2026-09-09 多云/小雨 29~24°C；2026-09-10 多云/多云 30~24°C。9月厦门多阵雨、湿热，出行前 3 天再查一次实时预报；带伞+防晒。"
+  },
+  "packing": [
+   "防晒霜",
+   "晴雨伞",
+   "舒适步行鞋",
+   "薄外套（室内冷气足）",
+   "泳具（可选）"
+  ],
+  "bookings": [
+   {
+    "item": "鼓浪屿船票",
+    "how": "微信小程序「厦门轮渡」，提前1-3天",
+    "deadline": "出发前1天"
+   }
+  ],
+  "transportSchedules": [
+   {
+    "line": "厦门高崎机场→市区",
+    "note": "BRT快1线约35分钟/5元；打车约30-40分钟"
+   },
+   {
+    "line": "上海→厦门",
+    "note": "高铁约5-6h / 飞机约2h（示例，请查询实时）"
+   }
+  ],
+  "safety": [
+   "海边注意潮汐与警示",
+   "打车用正规平台"
+  ],
+  "customs": [
+   "闽南话地区，普通话通用；寺庙注意着装"
+  ]
+ },
+ "_routeFilled": true
+}
