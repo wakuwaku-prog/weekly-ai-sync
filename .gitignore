@@ -20,3 +20,6 @@ dsh-desktop/
 Thumbs.db
 .idea/
 .vscode/
+# travel-site: 大文件与本地数据
+/travel-site/data/raw/audio/
+/travel-site/data/raw/subtitles/
