@@ -207,6 +207,15 @@ site/
 
 ## 操作记录（每次执行后追加）
 
+### 2026-09-08 第十四轮（地图仅行程栏 + 手机端占屏优化）
+- 用户反馈：① 地图不该在其他栏目出现；② 手机端页面被地图+悬浮导航占满
+- 修复（pilot 实测验证）：
+  - **地图与顺序导航只在「行程」tab 显示**：tab 切换 JS 用 `.grid.no-map` 切换 grid-template-areas（content 单列占满），`col-map display:none`，navbar 一并隐藏；切回行程时恢复并 `mp.resize()+drawDay` 重绘
+  - 手机端不再吸顶占屏：`.col-map` 去掉 sticky（自然滚动流）；地图高度 46vh→**36vh（min 260px）**；导航条 chips 单行横向滚动
+  - 实测：住宿栏 → colMapDisplay:none / gridAreas content；切回行程 → 恢复 block / mapH 260 ✓
+- 已推送：travel-site `5acc927`、模板 `314997c`；AGENTS 本轮同步
+- 遗留：图片帖 OCR / 酒店价格核实 / 船班时刻（可选精修）
+
 ### 2026-09-08 第十三轮（历史版存档 + 手机端地图适配）
 - **历史版存档**：当前重设计版快照 → `travel-site/history/2026-09-08-ui-redesign-v1/`（index.html + README，commit dbfab82），Git tag `ui-redesign-2026-09-08` 已推送
 - **手机端地图不显示的修复**（pilot_eval 实测定位）：
