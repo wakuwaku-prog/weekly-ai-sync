@@ -23,3 +23,6 @@ Thumbs.db
 # travel-site: 大文件与本地数据
 /travel-site/data/raw/audio/
 /travel-site/data/raw/subtitles/
+
+# travel-site 已迁移到独立仓库 wakuwaku-prog/travel-site
+/travel-site/

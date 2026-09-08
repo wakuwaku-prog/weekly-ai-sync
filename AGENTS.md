@@ -207,6 +207,14 @@ site/
 
 ## 操作记录（每次执行后追加）
 
+### 2026-09-08 第四轮（目标续跑 — 部署上线）
+- **独立部署**：travel-site 拆为独立仓库 `https://github.com/wakuwaku-prog/travel-site`，GitHub Pages 上线 **https://wakuwaku-prog.github.io/travel-site/**（workflow 模式：CI 里跑 `scripts/build_site.py` 后 upload-pages-artifact）
+- 部署要点：Pages 需先置为 `build_type=workflow`（DELETE+POST API）才能让 deploy-pages@v4 成功；git 需 `-c http.proxy=` 直连（本机 7890 代理未运行）
+- **网站新增「📚 资料来源」面板**：105 条来源（16 视频 + 79 小红书）可回溯展示；线上验收通过（7 栏目 + 三天真实路线 + 导航按钮）
+- 注意：**高德 JS API 安全域名白名单**需确认包含 `wakuwaku-prog.github.io`（当前渲染正常，如失效到高德控制台补域名）
+- B站转写子代理仍在运行（5 个视频，CPU 较慢）；完成前保留目标激活
+- **下一步**：转写完成后合并视频要点出完整攻略 → 补船票/时刻 → 迭代第二版网站
+
 ### 2026-09-08 第三轮（目标续跑 — 小红书突破）
 - **小红书通道打通**（用户重登后）：search 可用，**8 个关键词采集 79 篇厦门定向帖**（`data/research/xhs_xiamen_seed.json`），含 3天2夜攻略/鼓浪屿导航/16家小破店/住宿推荐/citywalk 等高赞帖；`note <完整URL+xsec_token>` 可读正文（图文帖正文在图片中，仅标题/标签）
 - **已精读并吸收**：《厦门3天2夜攻略》（镇海路住宿、十里长堤日落+免费演唱会、植物园西门+观光车、南普陀预约、朱富贵火锅预约、租电驴环岛骑行、防晒防蚊、海鲜问价）→ 已并入 hotel/experiences/tips
