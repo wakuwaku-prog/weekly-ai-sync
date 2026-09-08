@@ -170,6 +170,8 @@ def fill_demo(build=True):
         title = trip["meta"]["destination"]
         subtitles = f"{title} · {trip['meta']['days']}天 · 出发{trip['meta']['departureCity']} · {trip['meta']['travelers']} · {'/'.join(trip['meta']['preferences'])}"
         by_id = {p["id"]: p for p in trip["pois"]}
+        by_id.update({p["id"]: p for p in trip.get("restaurants", [])})
+        by_id.update({p["id"]: p for p in trip.get("hotels", [])})
         itinerary = {int(d["day"]): d for d in trip["itinerary"]}
         # 把 source 挂到 pois
         srcmap = {s["id"]: s for s in trip.get("sources", [])}

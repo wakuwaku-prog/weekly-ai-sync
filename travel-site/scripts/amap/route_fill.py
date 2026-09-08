@@ -24,6 +24,8 @@ def call_driving(origin, dest):
 
 def fill_trip(trip, out_path):
     by_id = {p["id"]: p for p in trip["pois"]}
+    by_id.update({p["id"]: p for p in trip.get("restaurants", [])})
+    by_id.update({p["id"]: p for p in trip.get("hotels", [])})
     finished = []
     for day in trip.get("itinerary", []):
         seq = []
