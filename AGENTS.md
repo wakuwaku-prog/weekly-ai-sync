@@ -207,6 +207,16 @@ site/
 
 ## 操作记录（每次执行后追加）
 
+### 2026-09-08 第十三轮（历史版存档 + 手机端地图适配）
+- **历史版存档**：当前重设计版快照 → `travel-site/history/2026-09-08-ui-redesign-v1/`（index.html + README，commit dbfab82），Git tag `ui-redesign-2026-09-08` 已推送
+- **手机端地图不显示的修复**（pilot_eval 实测定位）：
+  - 根因：移动端用 `order:-1` 排地图置顶，但实测 computed order=-1 而渲染顺序不变（环境/浏览器对该写法不可靠），地图实际排在页面底部，手机上"看不到地图界面"
+  - 改用 **grid-template-areas** 显式布局：桌面 `"content map"` / 移动 `"map" "content"`，不依赖 order；实测 754px 视口 mapTop=284 < contentTop=624 ✓
+  - 容器 `min-height:320px` + `height:46vh`；高德脚本加载失败/未初始化时显示 `#mapnotice` 兜底提示（提示可仍点站导航）；初始化后延迟 resize 重绘
+- 已推送：travel-site `4c6f668`、模板 `08af796`；AGENTS 本轮同步
+- **提醒用户**：手机建议打开线上 https://wakuwaku-prog.github.io/travel-site/（file:// 或微信 WebView 某些版本可能受限）；高德 JS Key 安全域名需含 `wakuwaku-prog.github.io`
+- 遗留：图片帖 OCR / 酒店价格核实 / 船班时刻（可选精修）
+
 ### 2026-09-08 第十二轮（前端整体重设计）
 - 用户要求优化前端界面（frontend-design skill 指导），重写 HTML_TEMPLATE：
   - **设计系统「潮汐 × 闽南」**：海雾纸底 `#f7f9fb`（非奶油）/ 深海墨蓝 `#12303d` / 潮汐青主色 `#0e7490` / 落日珊瑚点缀 `#e5725c`；宋体标题（Noto Serif SC/Songti SC 回退）+ 系统无衬线正文
