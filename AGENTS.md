@@ -207,6 +207,14 @@ site/
 
 ## 操作记录（每次执行后追加）
 
+### 2026-09-08 第七轮（新需求：导入高德路线图 + 通用模板项目）
+- **行程导入高德做成路线图**：新增 `scripts/amap/export_routes.py`——调用高德 direction API（extensions=all）取每段 polyline，生成 **KML / GPX / routes.json**（含每日路线线串 + 全部点位）；KML 可导入高德 App（我的→收藏→导入），GPX 供两步路/六只脚等；坐标 GCJ-02 说明已写入
+- **网站新增「📦 导入路线」面板**（8 栏目）：KML/GPX 下载（部署在 site/export/）+ 高德导入步骤 + 每日整体路线（起终点 uri.amap.com 链接 + 二维码）；厦门站线上已生效（curl 验证）
+- **通用模板仓库**：新建 **https://github.com/wakuwaku-prog/travel-planner-kit**（不含厦门数据）——通用版 README / SKILL.md（travel-research 技能）/ docs/schema.md / config.example.json / 脚本（build_site、route_fill、export_routes）/ CI workflow；空数据时 build_site 产出说明页（模板模式）；模板站 https://wakuwaku-prog.github.io/travel-planner-kit/ 已上线（HTTP 200）
+- 厦门仓库补 README 指向模板仓库；本次改动均已 push（网络已恢复）
+- **后续使用方式**：clone travel-planner-kit → .env 配高德 Key（一次）→ 按 SKILL.md 让 Agent 调研任意目的地 → 三步脚本 → push 即出站；无需再配置
+- 遗留：图片帖 OCR / 酒店价格 / 船班时刻（可选精修，不阻塞）
+
 ### 2026-09-08 第六轮（目标完成）
 - **B站转写 5/5 全部完成**：BV1dbyFBBE9X（厦门人眼中的厦门：笔山洞/龙头山寨郑成功练兵/叶氏麻糍/鲨鱼丸汤/皓月园）要点已合并 → 攻略 **v3 最终版**（`travel-site/guides/厦门-xiamen-攻略.md`）
 - **目标达成核对**：小红书 79 篇定向采集 ✅（≥20）｜B站 16 视频种子 + 5 全量转写 ✅（≥10）｜攻略含行程/酒店/交通/特色/美食/项目 ✅｜高德 API 逐日实测路线 + 每点 `uri.amap.com` 一键导航 ✅｜网站 7 栏目（行程/景点/特色体验/餐饮/出发前准备/旅行提醒/资料来源）✅｜线上 https://wakuwaku-prog.github.io/travel-site/ ✅（curl 确认 105 条来源）｜GitHub 参考调研与 skill/API 规划 ✅（PLAN.md）
