@@ -207,6 +207,13 @@ site/
 
 ## 操作记录（每次执行后追加）
 
+### 2026-09-08 第五轮（目标续跑 — v2 重构上线）
+- **v2 上线**：行程按 B站视频要点重构为「D1 老城+集美（中山路→八市→集美学村→十里长堤）/ D2 山海环岛（植物园→南普陀→猫街→沙坡尾→白城→演武大桥→环岛路→黄厝）/ D3 鼓浪屿全日（东渡码头→日光岩→菽庄→龙头路→八卦楼→大德记/皓月园）」，高德实测里程（23.7/55.2/13.8km）；线上 https://wakuwaku-prog.github.io/travel-site/ 确认更新（curl 验证）
+- **转写 4/5 完成**：BBV1qJ4m1G7Gm（3天2晚，全套行程/美食/住宿）、BV1UCrVBRELu（保姆级：交通/厦大预约/鼓浪屿船票35vs80/集美一日）、BV1apDMBTEED（防坑）、BV12d3NzzEEE（本地人24小店：有生/乌糖/四里沙茶面、明月虾面、阿杰五香、真真海蛎煎等）→ 要点合并进 `data/research/bilibili_notes.md` 与攻略 v2
+- **新增**：POI 19 个（新增八市/十里长堤/演武大桥/猫街/铁路公园/日光岩/菽庄/八卦楼/皓月园/东渡码头等）、体验 10 项、预约清单 6 条（船票提前10天/厦大访客中心/南普陀等）
+- 脚本：新增 `scripts/restructure_trip.py`（先写文件再跑，避免 heredoc 中文截断问题）
+- **下一步**：等第 5 个视频转写（BV1dbyFBBE9X）完成 → 攻略最终版；可选：图片帖 OCR、酒店价格核实、船班时刻
+
 ### 2026-09-08 第四轮（目标续跑 — 部署上线）
 - **独立部署**：travel-site 拆为独立仓库 `https://github.com/wakuwaku-prog/travel-site`，GitHub Pages 上线 **https://wakuwaku-prog.github.io/travel-site/**（workflow 模式：CI 里跑 `scripts/build_site.py` 后 upload-pages-artifact）
 - 部署要点：Pages 需先置为 `build_type=workflow`（DELETE+POST API）才能让 deploy-pages@v4 成功；git 需 `-c http.proxy=` 直连（本机 7890 代理未运行）
