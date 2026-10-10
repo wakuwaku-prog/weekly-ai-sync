@@ -334,8 +334,127 @@ site/
 - M3：`travel-site/scripts/build_site.py` → `travel-site/site/index.html`（自包含 18KB）：五栏目 tab + 每日时间轴 + 高德 JS 地图 + 每 POI「高德导航」按钮；浏览器验收通过（file:// 打开）
 - 待用户配合（卡点）：① OpenCLI Chrome 扩展安装或 `agent-reach configure xhs-cookies`；② AI-Douyin/TikHub Key；③ 可选 `bili login`
 
+---
+
+# 项目三：王力凯综测答辩 PPT（zongce_ppt）
+
+## 项目目标
+
+用 **ppt-master** skill，以 `C:\Users\epiph\Desktop\大二综测\ppt参考\综测答辩.pptx`（上海交大通用模板，25 页占位）为视觉基地、以 `王力凯_健康科学与技术-王景川.docx` 为内容源，产出用于**溥渊未来技术学院 2024 级发展性评估面试**（10 分钟 = 5′自述 + 5′问答）的答辩 PPT。**内容不得编造**，科研部分要详，佐证材料要用足。
+
+## 已确定方案（用户确认）
+
+- **路由**：ppt-master `Generate PPTX` 默认路线 + 自由设计（不安装模板工作区）；沿用基地文件的交大视觉基因
+- **画布**：`ppt169` 1280×720（与基地一致）
+- **阅读模式**：`presentation`（用户改）；正文 32px；标题 56 / 副标题 44 / 注释 24
+- **图片**：`image_usage: none`（纯文字版，不用照片）
+- **图标**：`chunk-filled`
+- **锁定的设计锚**：交大红 `#C8161E` · 强调橙 `#ED7D31` · 深蓝 `#1F4D78` · 背景 `#FFFFFF` · 次背景 `#EEF0F3` · 正文 `#1B1C21` · 次文本 `#5A6069` · 分隔 `#D6D9DE`；字体 `Microsoft YaHei, Arial, sans-serif` + `Consolas` 数据位
+- **设计方向**（三选一选中「证据密度版」）：mode `custom`（briefing + pyramid）、visual_style `custom`（data-journalism + blueprint）
+- **讲者备注**：开启，且**只写事实提纲+数据出点+转场，不写成稿讲稿**（参考模板明确建议讲稿用自己的语言）
+
+## 交付物
+
+- **`C:\Users\epiph\Desktop\大二综测\王力凯_综测答辩.pptx`** — 15 页可编辑 PPTX（正稿）
+- 工程目录：`zongce_ppt\zongce_defense_20260912\`（`design_spec.md` / `spec_lock.md` / `svg_output\` / `notes\` / `svg_final\` / `exports\` / `validation\`）
+- 预览 PNG：`zongce_ppt\preview\`（封面 / 学术 / 科研三页 / 收束）
+
+## 15 页结构
+
+| 页 | 内容 |
+|---|---|
+| 01 | 封面：从工程竞赛到科研课题（落款四字段表） |
+| 02 | 目录：六维度 3×2 等权网格 |
+| 03 | 学术表现：核心学积分排名 23/37、0 挂科、概统/大物/化学/C++ 85 上下、溥渊励志奖学金、卓越英才试点班、六级 545 |
+| 04 | 研创(一) 课题背景与**课题组前期数据**：ECM 稳态、植物囊泡四项优势、EVs 在 HUVEC/L929 摄取良好并促增殖迁移、FN1 与 COL1A1 上调 |
+| 05 | 研创(二) **三条机制假设 + 四条实施途径**：TGF-β/Smad 与 MAPK/ERK、COL1A1/COL3A1、MMPs/TIMPs；小鼠损伤与光老化模型、免疫胶体金+电镜、qPCR/WB/ELISA+RNA-seq、温敏水凝胶工程化改造 |
+| 06 | 研创(三) 我做的事与练到的能力：细胞培养与模型构建、囊泡提取与表征、WB/qPCR/ELISA、动物实验；每周 8–12 小时；数据真实性与动物福利；现象观察→机制探索→应用验证 |
+| 07 | 研创(四) 工程竞赛：新生杯一等奖 → 中国机器人大赛智能车标准竞速赛全国季军（二等奖） |
+| 08 | 领导与团队合作：科协宣传部干事；宁德挑战营执行者→朋辈导师组织者；团队社会实践二等奖 |
+| 09 | 社会责任感：上海马拉松万余人补给保障；智汇长三角近十家企业参访；助飞计划家访 |
+| 10 | 国际视野：《脑的真相与未来健康》国际暑期学校全英文癌症汇报，未来创新先锋奖 |
+| 11 | 文体发展：网球专项满分、羽毛球；文艺活动；摄影反哺学生工作 |
+| 12 | 面向提问：两个科研问题（机制与靶点 / 疗效量化验证） |
+| 13 | 导师评价：王景川老师原文要点引述 |
+| 14 | 收束：六维度关键词 + 欢迎提问 |
+| 15 | 封底：感谢聆听 |
+
+## 关键素材来源（本轮新发现，勿遗漏）
+
+- `大二综测\科研\植物囊泡通过调控细胞外基质稳态改善皮肤衰老的机制与应用研究 (1).docx` — **导师项目申请表**，含"项目背景 / 研究内容 / 实施途径 / 预期效果"完整栏位，是科研三页的主要事实来源
+- `大二综测\科研\2026第五期溥渊未来学者计划学生申请表 (1).docx` — 课题名称、指导老师夏伟梁、申请理由
+- `大二综测\科研\自我介绍 (1).docx` — 核心学积分排名 23/37
+- `大二综测\经历素材\24级_王力凯_健康科学与技术-WJC (1).docx` — 自评估表（课程 85 上下、网球满分、志愿项目）
+- `大二综测\最终资料\佐证材料\上海交通大学第二课堂成绩单 (2).pdf` — 志愿服务与讲座学时明细
+- `大二综测\ppt参考\综合素质评价面试-参考模板.pdf` — 15 页答辩结构 + 讲者建议
+- `大二综测\20260814【本科生】综合素质评价工作推进落实交流会 Final.pdf` — 答辩规则（10 分钟、5′+5′、9/23）
+
+## 复用方法（下次改版）
+
+```powershell
+python "C:\Users\epiph\.dsh\skills\ppt-master\scripts\svg_quality_checker.py" <proj> --canonical-authoring --stage final --json
+python "C:\Users\epiph\.dsh\skills\ppt-master\scripts\compact_svg_styles.py" <proj>\svg_output --inplace
+python "C:\Users\epiph\.dsh\skills\ppt-master\scripts\finalize_svg.py" <proj>
+python "C:\Users\epiph\.dsh\skills\ppt-master\scripts\svg_to_pptx.py" <proj>
+```
+
+## 操作记录
+
+### 2026-09-12 完成（一轮跑通）
+
+- 路由判定：raw PPTX + 新内容 = 源码材料而非模板；用户选择"沿用视觉风格重新排页" → Generate PPTX 默认路线 + 自由设计
+- 两阶段确认均走 confirm UI（`http://127.0.0.1:5050`）：Stage 1 用户把 `audience_outcome` 追加"以及全方位能力"；Stage 2 用户把 `delivery_purpose` 改为 `presentation`、`icons` 改为 `chunk-filled`、`body_size` 32、`title/subtitle/annotation` 56/44/24
+- 首轮按 13 页出稿后，用户追加要求"可以详细一些，关于科研没有提，重点可以参考佐证材料" → **从 13 页扩到 15 页**：研创实践拆成 4 页（背景与前期数据 / 机制假设与实施途径 / 我做的事 / 工程竞赛），并同步改 `design_spec.md §IX`、`spec_lock.md page_rhythm`、重编号 SVG 与页码
+- 质量门：early gate 暴露方法级偏差（bounds 按基线而非字形盒量），按"上界=首基线−0.85×字号、下界=末基线+0.35×字号"统一修正；final gate 多轮迭代至 **15/15 全过、0 error**
+- 载体回执缺项已给出理由：gradients 0 / filters 0（出版密度版锁定平面发丝线，无阴影发光）；icons 仅 15 处（图标为该版的强调手段而非通用装饰）；presets 仅 1 处 `rightArrow`（执行者→组织者）
+- 导出：`[POSTFLIGHT] status=passed-with-warnings quality_gate=passed slides=15`；zip 完整、1 master + 1 layout、0 外链图片、字体可移植、0 dangerous normalization
+- 渲染校验：svg_final 关键页转 PDF 取文本框，**无越界文本**
+- 遗留：`quality_introduced_warnings=9` 为 advisory（已跑 `compact_svg_styles.py` 归一化，剩余为 Paint recommendation 类提示）；如需照片版可重新确认 `image_usage`
+
+---
+
 ## 执行同步约定
 
 - **每轮执行结束后，将“做了什么 / 改了什么 / 卡在哪 / 下一步”追加到本文件“操作记录”**，并同步更新“执行进度”勾选框
 - 配置/凭据只写引用不写明文（Key 存 `travel-site/.env`）；来源链接必须可追溯
 - 出错与重试链也记录（如 B站 GBK 编码、yt-dlp cookie 锁、小红书登录墙）
+
+
+---
+
+# 项目四：小米11仪表盘（mi11lite board）
+
+## 项目目标
+
+电源键损坏的小米11青春版（M2101K9C / renoir）作常亮桌面仪表盘：Fully Kiosk 全屏加载页面。本轮在"今日课表"下方新增 **opencode Go 套餐用量**板块（5小时/本周/本月三窗口 + 重置倒计时），并复活"PC 状态"行。
+
+## 架构
+
+- **手机端**：Termux nginx `127.0.0.1:8080` 服 `~/www/board.html`（PWA）；Fully Kiosk（de.ozerov.fully）设其为启动页；SSH :8022（密钥登录，PC 侧 `adb forward tcp:18022 tcp:8022`）
+- **PC 端（wakwaku）**：`Desktop\手机\board\pc-status-agent.py` 监听 `0.0.0.0:9100`——`/metrics`（psutil CPU/内存/网速 + nvidia-smi GPU 温度）、`/api/usage`（服务端持 key 代理 `https://opencode.ai/zen/go/v1/usage`，缓存 60s）；全部响应带 CORS 头（页面源 127.0.0.1:8080 跨域读取）
+- **凭据**：`OPENCODE_GO_API_KEY` 存 `C:\Users\epiph\.dsh\.credentials.yaml`（agent 自取，页面不带密钥）；滴答 OpenAPI 令牌内嵌在 board.html（页面自身历史设计）
+- **自启**：注册表 `HKCU\...\Run\pc-status-agent` → pythonw 拉起 agent
+
+## 部署流程（改版）
+
+1. 改 `Desktop\手机\board\board-new.html`（部署源），**bump `BOARD_VER`**（页面每 5 分钟自检版本号不一致即自动 reload）
+2. `scp -o BatchMode=yes -P 18022 board-new.html 127.0.0.1:www/board.html`
+3. 等待 ≤5 分钟自动生效；急用可 `adb shell am force-stop de.ozerov.fully` + monkey 冷启（nginx 已对 board.html 加 `Cache-Control: no-cache`，冷启必定回源）
+4. 原版备份：手机 `~/www/board.html.bak-v10-3`、PC `board\board-original.html`
+
+## 版式要点（Chrome 104 WebView，横屏 CSS 仅 873×393）
+
+- 中栏面板实际宽 ~220px：用量行为两行式「标签 + 内联重置时间 + 百分比 / 进度条通栏」（flex:1 与 grid 1fr 在空间不足时都会塌缩，勿再改回同行三元素）
+- 课表面板 `minmax(0,1fr)` 吃剩余高度、行多时内部滚动；**用量面板 auto 定高钉底，不随课数变化**（用户明确要求）
+- 天气钉左栏底部（`.wx{margin-top:auto}`）并放大到 10vh；左栏 `padding-bottom:5vh`；夜间 01:00-07:00 页面自身压暗 0.78（截图发黑是正常现象，提亮用 gamma 0.4）
+- opencode 用量重置文案：`N分钟后重置 / 今天HH:MM重置 / 明天HH:MM重置 / M/D HH:MM重置`
+
+## 故障记录
+
+- **Fully WebView 离线缓存吃掉页面更新**（主文档从不回源、连 location.reload 都走缓存）：用户在 Fully 设置清缓存一次 + nginx no-cache 头双保险，此后更新可靠
+- **pythonw 下调 nvidia-smi 每 20s 弹黑窗**：subprocess 加 `creationflags=CREATE_NO_WINDOW`
+- 当前版本 **v11-13**；代码私库 `wakuwaku-prog/mi11lite-board`（**保持 private**：board-new.html 内含滴答令牌）
+
+## 状态
+
+✅ 2026-10-11 上线 v11-13：用量板块 + PC 状态复活 + 版式收敛；数据源实测与 opencode Console 一致
